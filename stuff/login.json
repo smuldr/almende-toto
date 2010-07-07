@@ -1,0 +1,798 @@
+{
+	"type":"get_player",
+	"payload":
+	[
+		{
+			"type":"wk",
+			"location":"South Africa",
+			"year":"2010",
+			"poule":
+			[
+				{
+					"id":"a",
+					"team":
+					[
+						{"name":"South Africa","code":"za"},
+						{"name":"Mexico","code":"mx"},
+						{"name":"Uruguay","code":"uy"},
+						{"name":"France","code":"fr"}
+					],
+					"game":
+					[
+						{"home":"1","away":"2","time":"2010\/06\/11 16:00","location":"Johannesburg"},
+						{"home":"3","away":"4","time":"2010\/06\/11 20:30","location":"Cape Town"},
+						{"home":"1","away":"3","time":"2010\/06\/16 20:30","location":"Pretoria"},
+						{"home":"4","away":"2","time":"2010\/06\/17 20:30","location":"Polokwane"},
+						{"home":"2","away":"3","time":"2010\/06\/22 16:00","location":"Rustenburg"},
+						{"home":"4","away":"1","time":"2010\/06\/22 16:00","location":"Bloemfontein"}
+					]
+				},
+				{
+					"id":"b",
+					"team":
+					[
+						{"name":"Argentina","code":"ar"},
+						{"name":"Nigeria","code":"ng"},
+						{"name":"Korea Republic","code":"kr"},
+						{"name":"Greece","code":"gr"}
+					],
+					"game":
+					[
+						{"home":"1","away":"2","time":"2010\/06\/12 16:00","location":"Johannesburg"},
+						{"home":"3","away":"4","time":"2010\/06\/12 13:30","location":"Port Elizabeth"},
+						{"home":"4","away":"2","time":"2010\/06\/17 16:00","location":"Bloemfontein"},
+						{"home":"1","away":"3","time":"2010\/06\/17 13:30","location":"Johannesburg"},
+						{"home":"2","away":"3","time":"2010\/06\/22 20:30","location":"Durban"},
+						{"home":"4","away":"1","time":"2010\/06\/22 20:30","location":"Polokwane"}
+					]
+				},
+				{
+					"id":"c",
+					"team":
+					[
+						{"name":"England","code":"gb"},
+						{"name":"USA","code":"us"},
+						{"name":"Algeria","code":"dz"},
+						{"name":"Slovenia","code":"si"}
+					],
+					"game":
+					[
+						{"home":"1","away":"2","time":"2010\/06\/12 20:30","location":"Rustenburg"},
+						{"home":"3","away":"4","time":"2010\/06\/13 13:30","location":"Polokwane"},
+						{"home":"4","away":"2","time":"2010\/06\/18 16:00","location":"Johannesburg"},
+						{"home":"1","away":"3","time":"2010\/06\/18 20:30","location":"Cape Town"},
+						{"home":"4","away":"1","time":"2010\/06\/23 16:00","location":"Port Elizabeth"},
+						{"home":"2","away":"3","time":"2010\/06\/23 16:00","location":"Pretoria"}
+					]
+				},
+				{
+					"id":"d",
+					"team":
+					[
+						{"name":"Germany","code":"de"},
+						{"name":"Australia","code":"au"},
+						{"name":"Serbia","code":"rs"},
+						{"name":"Ghana","code":"gh"}
+					],
+					"game":
+					[
+						{"home":"1","away":"2","time":"2010\/06\/13 20:30","location":"Durban"},
+						{"home":"3","away":"4","time":"2010\/06\/13 16:00","location":"Pretoria"},
+						{"home":"1","away":"3","time":"2010\/06\/18 13:30","location":"Port Elizabeth"},
+						{"home":"4","away":"2","time":"2010\/06\/19 16:00","location":"Rustenburg"},
+						{"home":"4","away":"1","time":"2010\/06\/23 20:30","location":"Johannesburg"},
+						{"home":"2","away":"3","time":"2010\/06\/23 20:30","location":"Nelspruit"}
+					]
+				},
+				{
+					"id":"e",
+					"team":
+					[
+						{"name":"Netherlands","code":"nl"},
+						{"name":"Denmark","code":"dk"},
+						{"name":"Japan","code":"jp"},
+						{"name":"Cameroon","code":"cm"}
+					],
+					"game":
+					[
+						{"home":"1","away":"2","time":"2010\/06\/14 13:30","location":"Johannesburg"},
+						{"home":"3","away":"4","time":"2010\/06\/14 16:00","location":"Bloemfontein"},
+						{"home":"1","away":"3","time":"2010\/06\/19 13:30","location":"Durban"},
+						{"home":"4","away":"2","time":"2010\/06\/19 20:30","location":"Pretoria"},
+						{"home":"2","away":"3","time":"2010\/06\/24 20:30","location":"Rustenburg"},
+						{"home":"4","away":"1","time":"2010\/06\/24 20:30","location":"Cape Town"}
+					]
+				},
+				{
+					"id":"f",
+					"team":
+					[
+						{"name":"Italy","code":"it"},
+						{"name":"Paraguay","code":"py"},
+						{"name":"New Zeeland","code":"nz"},
+						{"name":"Slovakia","code":"sk"}
+					],
+					"game":
+					[
+						{"home":"1","away":"2","time":"2010\/06\/14 20:30","location":"Cape Town"},
+						{"home":"3","away":"4","time":"2010\/06\/15 13:30","location":"Rustenburg"},
+						{"home":"4","away":"2","time":"2010\/06\/20 13:30","location":"Bloemfontein"},
+						{"home":"1","away":"3","time":"2010\/06\/20 16:00","location":"Nelspruit"},
+						{"home":"4","away":"1","time":"2010\/06\/24 16:00","location":"Johannesburg"},
+						{"home":"2","away":"3","time":"2010\/06\/24 16:00","location":"Polokwane"}
+					]
+				},
+				{
+					"id":"g",
+					"team":
+					[
+						{"name":"Brazil","code":"br"},
+						{"name":"Korea DPR","code":"kp"},
+						{"name":"Ivory coast","code":"ci"},
+						{"name":"Portugal","code":"pt"}
+					],
+					"game":
+					[
+						{"home":"3","away":"4","time":"2010\/06\/15 16:00","location":"Port Elizabeth"},
+						{"home":"1","away":"2","time":"2010\/06\/15 20:30","location":"Johannesburg"},
+						{"home":"1","away":"3","time":"2010\/06\/20 20:30","location":"Johannesburg"},
+						{"home":"4","away":"2","time":"2010\/06\/21 13:30","location":"Cape Town"},
+						{"home":"4","away":"1","time":"2010\/06\/25 16:00","location":"Durban"},
+						{"home":"2","away":"3","time":"2010\/06\/25 16:00","location":"Nelspruit"}
+					]
+				},
+				{
+					"id":"h",
+					"team":
+					[
+						{"name":"Spain","code":"es"},
+						{"name":"Switzerland","code":"ch"},
+						{"name":"Honduras","code":"hn"},
+						{"name":"Chile","code":"cl"}
+					],
+					"game":
+					[
+						{"home":"3","away":"4","time":"2010\/06\/16 13:30","location":"Nelspruit"},
+						{"home":"1","away":"2","time":"2010\/06\/16 16:00","location":"Durban"},
+						{"home":"4","away":"2","time":"2010\/06\/21 16:00","location":"Port Elizabeth"},
+						{"home":"1","away":"3","time":"2010\/06\/21 20:30","location":"Johannesburg"},
+						{"home":"4","away":"1","time":"2010\/06\/25 20:30","location":"Pretoria"},
+						{"home":"2","away":"3","time":"2010\/06\/25 20:30","location":"Bloemfontein"}
+					]
+				}
+			],
+			"finals":
+			[
+				{
+					"name":"eight final",
+					"id":"i",
+					"team":
+					[
+						{"name":"Uruguay","code":"uy"},
+						{"name":"second B","code":"unknown"},
+						{"name":"winner C","code":"unknown"},
+						{"name":"second D","code":"unknown"},
+						{"name":"winner D","code":"unknown"},
+						{"name":"second C","code":"unknown"},
+						{"name":"winner B","code":"unknown"},
+						{"name":"Mexico","code":"mx"},
+						{"name":"winner E","code":"unknown"},
+						{"name":"second F","code":"unknown"},
+						{"name":"winner G","code":"unknown"},
+						{"name":"second H","code":"unknown"},
+						{"name":"winner F","code":"unknown"},
+						{"name":"second E","code":"unknown"},
+						{"name":"winner H","code":"unknown"},
+						{"name":"second G","code":"unknown"}
+					],
+					"game":
+					[
+						{"nr":"49","home":"1","away":"2","time":"2010\/06\/26 16:00","location":"Port Elizabeth"},
+						{"nr":"50","home":"3","away":"4","time":"2010\/06\/26 20:30","location":"Rustenburg"},
+						{"nr":"51","home":"5","away":"6","time":"2010\/06\/27 16:00","location":"Bloemfontein"},
+						{"nr":"52","home":"7","away":"8","time":"2010\/06\/27 20:30","location":"Johannesburg"},
+						{"nr":"53","home":"9","away":"10","time":"2010\/06\/28 16:00","location":"Durban"},
+						{"nr":"54","home":"11","away":"12","time":"2010\/06\/28 20:30","location":"Johannesburg"},
+						{"nr":"55","home":"13","away":"14","time":"2010\/06\/29 16:00","location":"Pretoria"},
+						{"nr":"56","home":"15","away":"16","time":"2010\/06\/29 20:30","location":"Cape Town"}
+					]
+				},
+				{
+					"name":"quarter final",
+					"id":"j",
+					"team":
+					[
+						{"name":"winner 49","code":"unknown"},
+						{"name":"winner 50","code":"unknown"},
+						{"name":"winner 51","code":"unknown"},
+						{"name":"winner 52","code":"unknown"},
+						{"name":"winner 53","code":"unknown"},
+						{"name":"winner 54","code":"unknown"},
+						{"name":"winner 55","code":"unknown"},
+						{"name":"winner 56","code":"unknown"}
+					],
+					"game":
+					[
+						{"nr":"57","home":"5","away":"6","time":"2010\/07\/02 16:00","location":"Port Elizabeth"},
+						{"nr":"58","home":"1","away":"2","time":"2010\/07\/02 20:30","location":"Johannesburg"},
+						{"nr":"59","home":"4","away":"3","time":"2010\/07\/03 16:00","location":"Cape Town"},
+						{"nr":"60","home":"7","away":"8","time":"2010\/07\/03 20:30","location":"Johannesburg"}
+					]
+				},
+				{
+					"name":"semi final",
+					"id":"k",
+					"team":
+					[
+						{"name":"winner 57","code":"unknown"},
+						{"name":"winner 58","code":"unknown"},
+						{"name":"winner 59","code":"unknown"},
+						{"name":"winner 60","code":"unknown"}
+					],
+					"game":
+					[
+						{"nr":"61","home":"2","away":"1","time":"2010\/07\/06 20:30","location":"Cape Town"},
+						{"nr":"62","home":"3","away":"4","time":"2010\/07\/07 20:30","location":"Durban"}
+					]
+				},
+				{
+					"name":"final",
+					"id":"l",
+					"team":
+					[
+						{"name":"winner 61","code":"unknown"},
+						{"name":"winner 62","code":"unknown"}
+					],
+					"game":{"nr":"64","home":"1","away":"2","time":"2010\/07\/11 20:30","location":"Johannesburg"}
+				}
+			]
+		},
+		{
+			"real":
+			{
+				"name":"real",
+				"shortname":"real",
+				"fullname":"The Real Score",
+				"company":"none",
+				"pass":null,
+				"email":"veel",
+				"opened":null,
+				"opts":"y,y,n",
+				"poules":"1,1,,0,0,,0,3,,0,2,,0,1,,1,2,,1,0,,2,0,,2,1,,4,1,,2,2,,0,2,,1,1,,0,1,,2,2,,0,0,,0,1,,1,0,,4,0,,0,1,,0,1,,1,1,,x,x,,x,x,,2,0,,1,0,,1,0,,1,2,,,,,,,,1,1,,1,1,,0,2,,1,1,,,,,,,,0,0,,2,1,,3,1,,7,0,,,,,,,,0,1,,0,1,,1,0,,2,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+				"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+				"finals4":",,,,,,,,,,,,",
+				"finals2":",,,,,,",
+				"finals1":",,,",
+				"jokers":"0"
+			},
+			"servertime":1277322462,
+			"list":
+			{
+				"bokito":
+				{
+					"name":"bokito","shortname":"bokito","fullname":"A rather aggressive monkey","company":"blijdorp","pass":null,"email":"veel","opened":null,"opts":"y,y,n",
+					"poules":"
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,
+					0,0,,
+					0,1,,
+					1,0,,
+					1,1,,",
+					"finals8":"0:w,0,,0,1,,1,0,,1,1:w,,0,0:w,,0,1,,1,0,,1,1:w,,",
+					"finals4":"0:w,0,,0,1,,1,0,,1,1:w,,",
+					"finals2":"0,0:w,,0,1,,",
+					"finals1":"1,0,,",
+					"jokers":"0"
+				},
+				"baboon":
+				{
+					"name":"baboon","shortname":"baboon","fullname":"A monkey","company":"blijdorp","pass":null,"email":"veel","opened":null,"opts":"y,y,n",
+					"poules":"1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,",
+					"finals8":"1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,",
+					"finals4":"1,1,,1,1,,1,1,,1,1,,",
+					"finals2":"1,1,,1,1,,",
+					"finals1":"1,1,,",
+					"jokers":"0"
+				},
+				"chimp":
+				{
+					"name":"chimp","shortname":"chimp","fullname":"An Ape","company":"blijdorp","pass":null,"email":"veel","opened":null,"opts":"y,y,n",
+					"poules":"0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,",
+					"finals8":"0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,",
+					"finals4":"0,0,,0,0,,0,0,,0,0,,",
+					"finals2":"0,0,,0,0,,",
+					"finals1":"0,0,,",
+					"jokers":"0"
+				},
+				"joost":
+				{
+					"name":"joost","shortname":"joost","fullname":"Joost","company":"deal","pass":null,"email":"joost@dealservices.nl","opened":null,"opts":"y,n,n",
+					"poules":"1,1,,1,3,,1,0,,2,1,,0,0,,0,0,,2,0,,1,1,,1,1,,2,0,,,,,,,,2,1,,1,2,,0,0,,1,0,,0,2,,1,0,,3,1,,2,2,,2,0,,1,1,,1,2,,1,0,,2,1,,0,0,,2,0,,0,1,,2,0,,0,2,,2,0,,1,2,,1,0,,2,0,,2,1,,0,1,,0,2,,2,0,,3,0,,1,0,,1,2,,0,1,,0,1,,2,0,,1,0,,1,0,,1,2,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"sjoerd":{
+					"name":"sjoerd","shortname":"sjoerd","fullname":"Sjoerd","company":"deal","pass":null,"email":"sjoerd@dealservices.nl","opened":null,"opts":"y,y,n",
+					"poules":"0,1,,0,1,,1,1,,1,1,,0,0,,1,1,,1,0,,1,1,,0,1,,1,0,,1,1,,0,1,,1,0,,0,1,,0,1,,2,0,,0,1,,1,0,,1,0,,1,0,,1,0,,1,0,,0,1,,0,1,,1,0,,0,1,,1,0,,1,1,,1,1,,1,1,,1,0,,0,1,,1,1,,3,0,,0,1,,1,0,,1,1,,3,0,,1,0,,1,0,,0,1,,0,2,,0,1,,2,0,,1,0,,2,0,,0,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"habib":
+				{
+					"name":"habib","shortname":"habib","fullname":"Habib","company":"deal","pass":null,"email":"habsky@gmail.com","opened":null,"opts":"y,y,y",
+					"poules":"1,2,,0,1,,0,0,,1,1,,1,0,,0,1,,2,0,,1,1,,0,2,,2,1,,1,1,,0,3,,3,1,,1,3,,2,1,,2,0,,0,1,,1,0,,4,0,,1,1,,2,1,,2,0,,0,2,,0,1,,4,2,,0,0,,2,1,,1,1,,,,,,,,2,0,,0,3,,0,1,,2,0,,,,,,,,1,1,,3,0,,1,0,,1,0,,,,,,,,0,1,,2,0,,1,0,,3,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"0"
+				},
+				"binne":
+				{
+					"name":"binne","shortname":"binne","fullname":"Binne Simonides","company":"regas","pass":null,"email":"binne@regas.nl","opened":null,"opts":"y,n,n",
+					"poules":"2,1,,1,1,,1,1,,2,1,,2,2,,2,1,,1,0,,0,0,,0,1,,2,1,,1,1,,0,3,,,,,0,1,,1,2,,2,0,,1,3,,1,0,,2,1,,2,0,,2,0,,1,1,,1,3,,1,2,,3,0,,0,2,,3,0,,1,1,,2,1,,0,2,,1,0,,0,1,,2,0,,1,0,,0,1,,1,0,,1,1,,2,0,,2,1,,2,0,,2,2,,0,2,,1,1,,3,0,,1,1,,3,0,,0,3,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":"1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,",
+					"finals4":"1,0,,1,0,,1,0,,1,0,,",
+					"finals2":"1,0,,1,0,,",
+					"finals1":"1,0,,",
+					"jokers":"1"
+				},
+				"gerben":
+				{
+					"name":"gerben","shortname":"gerben","fullname":"Gerben Kazius","company":"regas","pass":null,"email":"gerben@regas.nl","opened":null,"opts":"y,y,y",
+					"poules":"1,2,,1,0,,,,,1,0,,0,0,,2,1,,3,1,,0,0,,0,2,,1,0,,1,1,,0,2,,2,0,,0,3,,1,1,,2,0,,0,1,,2,0,,2,0,,2,3,,1,0,,0,0,,0,2,,1,0,,3,1,,1,2,,4,0,,0,1,,1,0,,1,3,,2,2,,0,2,,0,1,,1,0,,0,2,,0,1,,0,3,,4,0,,2,1,,1,1,,1,1,,0,3,,0,0,,2,0,,0,0,,2,1,,1,2,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"emine":
+				{
+					"name":"emine","shortname":"emine","fullname":"Emine Tokul","company":"almende","pass":null,"email":"emine@almende.com","opened":null,"opts":"y,y,n",
+					"poules":"2,1,,2,3,,1,2,,1,1,,1,0,,2,1,,2,1,,1,1,,1,2,,1,2,,1,2,,1,2,,2,1,,1,1,,2,1,,1,0,,0,2,,1,0,,2,0,,0,1,,3,1,,1,0,,1,2,,1,1,,2,1,,1,1,,2,1,,0,1,,1,1,,0,3,,2,1,,0,1,,1,0,,1,0,,0,2,,0,1,,1,2,,3,1,,2,0,,1,1,,1,2,,1,0,,1,1,,2,0,,0,1,,1,0,,0,1,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"tamas":
+				{
+					"name":"tamas","shortname":"tamas","fullname":"Tamas Mahr","company":"aitia","pass":null,"email":"tamas@almende.com","opened":null,"opts":"y,y,y",
+					"poules":"2,1,,1,0,,1,1,,1,1,,0,1,,1,0,,2,1,,0,1,,0,1,,1,0,,0,2,,0,3,,1,0,,0,1,,1,1,,2,0,,0,1,,2,0,,2,0,,0,1,,2,0,,1,0,,1,2,,0,1,,3,0,,0,1,,2,0,,1,0,,0,1,,0,2,,1,0,,0,1,,0,1,,1,0,,0,1,,1,0,,1,0,,2,0,,2,0,,1,1,,,,,,,,0,1,,2,0,,2,1,,2,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"jp":
+				{
+					"name":"jp","shortname":"jp","fullname":"Jan Peter Larsenende","company":"almende","pass":null,"email":"jp@almende.com","opened":null,"opts":"y,y,n",
+					"poules":"0,1,,0,1,,1,0,,1,0,,0,1,,0,1,,1,0,,1,0,,0,1,,1,0,,0,1,,0,1,,1,0,,0,1,,1,0,,1,0,,0,1,,1,0,,1,0,,1,0,,0,1,,1,0,,0,1,,0,1,,3,1,,0,1,,3,1,,0,1,,0,1,,1,3,,1,0,,0,1,,0,1,j,1,0,,0,1,,1,0,,0,1,,1,0,,1,0,,1,0,,0,1,,0,1,,1,0,,1,0,,0,1,,1,0,,0,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":"1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,",
+					"finals4":"0,1,,1,0,,1,0,,0,1,,",
+					"finals2":"0,1,,1,0,,",
+					"finals1":"0,1,,",
+					"jokers":"1"
+				},
+				"Judith":
+				{
+					"name":"Judith","shortname":"judith","fullname":"Judith Engelsman","company":"almende","pass":null,"email":"judith@almende.org","opened":null,"opts":"y,y,n",
+					"poules":"1,1,,1,2,,0,1,,2,1,,1,1,,2,1,,2,1,,0,1,,1,0,,2,1,,1,0,,0,2,,2,1,,0,1,,1,1,,2,1,,2,2,,2,0,,2,1,,2,1,,2,1,,3,0,,0,1,,0,1,,2,0,,0,1,,2,0,,1,0,,0,1,,0,2,,1,1,,0,1,,1,2,j,2,1,,1,2,,1,0,,1,2,,2,0,,2,1,,2,0,,1,1,,0,1,,0,1,,2,1,,0,1,,2,0,,0,2,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"ted":
+				{
+					"name":"ted","shortname":"ted","fullname":"Ted Schmidt","company":"sense","pass":null,"email":"ted@almende.org","opened":null,"opts":"y,y,n",
+					"poules":"2,1,,1,2,,1,0,,1,1,,2,1,,1,2,,2,1,,1,2,,1,1,,2,1,,2,1,,0,1,,2,1,,0,1,,1,1,,2,0,,1,0,,1,0,,2,1,,1,0,,2,0,,2,0,,0,1,,1,2,,2,1,,0,2,,2,0,,1,1,,1,0,,1,0,,2,0,,0,1,,0,1,,2,0,,1,0,,1,0,,1,1,,2,0,,2,0,,1,0,,1,0,,1,0,,0,1,,2,0,,1,1,,2,0,,1,0,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"Hans":
+				{
+					"name":"Hans","shortname":"hans","fullname":"Hans Abbink","company":"sense","pass":null,"email":"hans@almende.com","opened":null,"opts":"y,y,n",
+					"poules":"0,2,,1,3,,0,1,,1,0,,0,1,,2,1,,2,1,,2,0,,0,1,,2,0,,1,0,,0,2,,2,0,,1,1,,2,1,,2,0,,1,2,,1,0,,2,0,,1,2,,2,0,,2,0,,0,0,,1,0,,2,0,,0,2,,2,0,j,0,1,,1,0,,0,1,,0,0,,0,1,,2,1,,2,0,,0,2,,1,0,,1,0,,2,0,,2,1,,2,1,,0,0,,1,0,,0,1,,1,0,,0,0,,2,0,,1,2,,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":"2,1,,1,2,,0,0:w,,1,0,,0,2,,1:w,1,,0,1,,1,0,,",
+					"finals4":"2,1,,1,0,,0:w,0,,1,0,,",
+					"finals2":"2,0,,1,2,,",
+					"finals1":"1,1:w,,",
+					"jokers":"3"
+				},
+				"marcel":
+				{
+					"name":"marcel","shortname":"marcel","fullname":"Marcel Prinsen","company":"regas","pass":null,"email":"marcel@regas.nl","opened":null,"opts":"y,y,n",
+					"poules":"1,1,,0,0,,0,0,,1,1,,0,0,,1,1,,0,0,,0,1,,0,1,,1,0,,0,1,,0,2,,2,0,,0,1,,0,0,,1,0,,1,0,,2,0,,1,1,,2,2,,2,0,,1,0,,1,1,,0,2,,2,0,,1,2,,2,0,,0,0,,1,0,,0,4,,0,0,,0,0,,0,0,,2,0,,0,1,,2,0,,2,2,,1,1,,0,0,,1,0,,1,1,,0,2,,0,0,,2,0,,2,0,,2,0,,2,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"Jorien":
+				{
+					"name":"Jorien","shortname":"jorien","fullname":"Jorien Kleijwegt","company":"almende","pass":null,"email":"jorien@almende.org","opened":null,"opts":"y,y,y",
+					"poules":"0,1,,1,3,,1,1,,2,0,,2,0,,4,0,,3,0,,2,3,,2,1,,2,1,,0,1,,1,4,,2,0,,2,2,,1,0,,3,1,,2,1,,2,1,,2,1,,4,1,,3,2,,2,0,,2,1,,1,2,,3,1,,1,1,,2,0,,0,2,,2,2,,0,3,,3,1,,0,2,,1,1,,3,1,,1,2,,2,2,,1,3,,3,0,,3,1,,1,0,,1,1,,2,2,,1,1,,2,0,,1,0,,3,1,,0,2,,3,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"rien":
+				{
+					"name":"rien","shortname":"rien","fullname":"Rien van Adrichem","company":"ask","pass":null,"email":"rien@almende.com","opened":null,"opts":"y,y,n",
+					"poules":"1,0,,1,1,,1,2,,2,1,,1,1,,2,0,,2,0,,1,0,,1,0,,2,1,,0,1,,0,1,,2,0,,1,1,,1,1,,1,0,,1,1,,1,0,,2,1,,2,0,,3,1,,0,1,,0,2,,0,1,,2,1,,0,1,,3,0,,1,2,,2,0,,0,2,,1,1,,0,1,,0,1,,2,0,,1,1,,2,0,,0,1,,2,0,,2,0,,1,0,,1,1,,1,0,,1,1,,1,0,,2,1,,3,0,,1,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"3"
+				},
+				"ludo":
+				{
+					"name":"ludo","shortname":"ludo","fullname":"Ludo Stellingwerff","company":"ask","pass":null,"email":"ludo@stwerff.xs4all.nl","opened":null,"opts":"y,y,n",
+					"poules":"1,2,,0,2,,1,1,,2,1,,1,0,,1,1,,2,1,,1,2,,1,1,,2,1,,0,2,,0,2,,2,1,,1,0,,0,1,,2,0,j,1,2,,1,0,,0,1,,1,3,,1,0,,1,0,,1,2,,0,1,,2,1,,1,2,,3,0,,1,0,,1,1,,1,2,,1,0,,1,1,,0,1,,1,0,,1,1,,1,0,,1,2,,2,0,,1,0,,2,0,,1,1,,0,0,,1,1,,2,0,,0,0,,1,0,,0,2,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":"2,2:w,,2,1,,2,0,,1,0,,3,0,,1:w,1,,1,0,,2,3,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"Gaby":
+				{
+					"name":"Gaby","shortname":"gaby","fullname":"Gaby van Emmenes","company":"ask","pass":null,"email":"gvanemmenes@ask-cs.com","opened":null,"opts":"y,y,y",
+					"poules":"0,2,,2,3,,0,2,,3,2,,1,1,,3,0,,3,1,,1,4,,2,1,,4,1,,2,0,,1,2,,2,1,,1,1,,1,2,,3,0,,1,3,,3,1,,3,0,,2,1,,2,0,,1,2,,0,3,,2,2,,4,1,,0,2,,4,0,,2,1,,1,1,,1,3,,4,1,,0,4,,2,2,,5,0,,0,3,,2,0,,1,4,,5,0,,5,1,,3,0,,2,2,,0,1,,2,1,,4,1,,2,2,,4,0,,1,3,,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"kees":
+				{
+					"name":"kees","shortname":"kees","fullname":"Kees Klop","company":"deal","pass":null,"email":"kees@almende.org","opened":null,"opts":"y,y,y",
+					"poules":"1,2,,0,1,,0,0,,0,0,,0,1,,1,1,,2,0,,1,1,,0,1,,2,0,,2,1,,0,3,,1,1,,0,2,,1,0,,2,0,,1,2,,2,0,,2,0,,1,2,,2,1,,3,1,,0,1,,0,1,,3,1,,0,1,,2,1,,0,1,,0,0,,0,0,,1,0,,0,3,,0,2,,3,0,,0,0,,0,0,,0,1,,2,0,,2,0,,1,0,,1,1,,0,0,,0,1,,2,0,j,1,1,,1,0,,0,0,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"3"
+				},
+				"steven":
+				{
+					"name":"steven","shortname":"steven","fullname":"Steven Mulder","company":"sense","pass":null,"email":"steven@sense-os.nl","opened":null,"opts":"y,y,y",
+					"poules":"1,1,,2,1,,0,1,,0,1,,2,1,,0,2,,3,1,,0,1,,1,2,,3,0,,2,1,,0,1,,1,1,,2,0,,0,1,,2,0,,1,2,,2,1,,1,0,,1,0,,3,1,,1,0,,1,2,,1,2,,2,1,,0,1,,2,1,,1,1,,,,,,,,1,1,,0,2,,1,1,j,2,0,,,,,,,,1,1,,2,0,,2,1,,1,0,,,,,,,,0,1,,3,0,,2,0,,3,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"xiaoyu":
+				{
+					"name":"xiaoyu","shortname":"xiaoyu","fullname":"Xiaoyu Mao","company":"almende","pass":null,"email":"xiaoyu@almende.org","opened":null,"opts":"y,y,n",
+					"poules":"1,1,,1,1,,1,1,,1,0,,0,0,,1,1,,1,0,,0,1,,0,1,,1,0,,1,1,,0,1,,1,0,,1,1,,0,1,,2,0,,0,1,,1,0,,1,0,,1,1,,1,0,,1,0,,0,1,,0,1,,1,0,,0,1,,1,0,,0,1,,1,1,,0,1,,1,0,,0,1,,0,1,,2,0,,0,1,,1,0,,1,1,,3,0,,1,0,,1,0,,1,1,,1,1,,0,1,,2,0,,1,0,,2,0,,1,1,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":"1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,",
+					"finals4":"1,0,,1,0,,1,0,,1,0,,",
+					"finals2":"1,0,,1,0,,",
+					"finals1":"1,0,,",
+					"jokers":"1"
+				},
+				"Freek":
+				{
+					"name":"Freek","shortname":"freek","fullname":"Freek van Polen","company":"sense","pass":null,"email":"freek@almende.org","opened":null,"opts":"y,y,y",
+					"poules":"1,3,,2,0,,1,2,,2,0,,1,2,,0,2,,2,1,,1,2,,0,2,,2,1,,1,2,,0,3,,1,0,,1,1,,0,1,,2,1,,0,1,,2,1,,3,0,,2,0,,2,1,,2,0,,1,2,,0,2,,3,1,,1,2,,2,0,,0,1,,2,1,,0,2,,2,0,,1,2,,0,2,j,2,0,,1,1,,2,0,,1,2,,5,0,,2,0,,1,0,,0,2,,1,1,,0,1,,3,0,,2,0,,3,0,,1,2,,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"duco":
+				{
+					"name":"duco","shortname":"duco","fullname":"Duco Ferro","company":"almende","pass":null,"email":"duco@almende.org","opened":null,"opts":"y,y,y",
+					"poules":"1,2,,0,1,,1,1,,1,1,,1,0,,1,0,,1,0,,1,2,,0,1,,2,1,,1,1,,0,2,,2,0,,0,1,,1,1,,1,0,,1,2,,1,0,,2,0,,1,0,,1,0,,1,0,,1,3,,1,2,,2,1,,0,1,,2,1,j,1,1,,2,1,,1,2,,2,0,,0,1,,1,1,,2,0,,0,1,,2,1,,0,1,,4,0,,3,0,,2,0,,1,2,,1,2,,0,1,,1,0,,1,1,,2,1,,1,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":",,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals4":",,,,,,,,,,,,",
+					"finals2":",,,,,,",
+					"finals1":",,,",
+					"jokers":"1"
+				},
+				"anne":
+				{
+					"name":"anne","shortname":"anne","fullname":"Anne van Rossum","company":"sense","pass":null,"email":"anne@almende.com","opened":null,"opts":"y,y,y",
+					"poules":"1,2,,1,1,,1,1,,1,1,,0,1,,2,0,,2,1,,0,2,,0,1,,2,1,,1,2,,0,2,,2,0,,0,2,,1,2,,1,1,,1,1,,0,1,,3,0,,0,1,,2,0,,1,1,,1,2,,0,1,,1,0,,1,1,,2,1,,1,0,,2,1,,3,1,,2,0,,0,1,,0,0,,2,0,,1,1,,2,0,,1,2,,3,0,,2,1,,2,0,,1,1,,1,1,,1,1,,1,1,,2,0,,2,0,,0,0,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+					"finals8":"1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,",
+					"finals4":"0,0:w,,0,1,,1,0,,1:w,1,,",
+					"finals2":"0,1,,1,0,,",
+					"finals1":"1,1:w,,",
+					"jokers":"1"
+				}
+			}
+		}
+	],
+	"error":null
+}
+
+{
+    "type":"get_player",
+    "payload":
+    [
+        {
+            "type":"wk",
+            "location":"South Africa",
+            "year":"2010",
+            "poule":
+            [
+                {
+                    "id":"a",
+                    "team":
+                    [
+                        {"name":"South Africa","code":"za"},
+                        {"name":"Mexico","code":"mx"},
+                        {"name":"Uruguay","code":"uy"},
+                        {"name":"France","code":"fr"}
+                    ],
+                    "game":
+                    [
+                        {"home":"1","away":"2","time":"2010\/06\/11 16:00","location":"Johannesburg"},
+                        {"home":"3","away":"4","time":"2010\/06\/11 20:30","location":"Cape Town"},
+                        {"home":"1","away":"3","time":"2010\/06\/16 20:30","location":"Pretoria"},
+                        {"home":"4","away":"2","time":"2010\/06\/17 20:30","location":"Polokwane"},
+                        {"home":"2","away":"3","time":"2010\/06\/22 16:00","location":"Rustenburg"},
+                        {"home":"4","away":"1","time":"2010\/06\/22 16:00","location":"Bloemfontein"}
+                    ]
+                },
+                {
+                    "id":"b",
+                    "team":
+                    [
+                        {"name":"Argentina","code":"ar"},
+                        {"name":"Nigeria","code":"ng"},
+                        {"name":"Korea Republic","code":"kr"},
+                        {"name":"Greece","code":"gr"}
+                    ],
+                    "game":
+                    [
+                        {"home":"1","away":"2","time":"2010\/06\/12 16:00","location":"Johannesburg"},
+                        {"home":"3","away":"4","time":"2010\/06\/12 13:30","location":"Port Elizabeth"},
+                        {"home":"4","away":"2","time":"2010\/06\/17 16:00","location":"Bloemfontein"},
+                        {"home":"1","away":"3","time":"2010\/06\/17 13:30","location":"Johannesburg"},
+                        {"home":"2","away":"3","time":"2010\/06\/22 20:30","location":"Durban"},
+                        {"home":"4","away":"1","time":"2010\/06\/22 20:30","location":"Polokwane"}
+                    ]
+                },
+                {
+                    "id":"c",
+                    "team":
+                    [
+                        {"name":"England","code":"gb"},
+                        {"name":"USA","code":"us"},
+                        {"name":"Algeria","code":"dz"},
+                        {"name":"Slovenia","code":"si"}
+                    ],
+                    "game":
+                    [
+                        {"home":"1","away":"2","time":"2010\/06\/12 20:30","location":"Rustenburg"},
+                        {"home":"3","away":"4","time":"2010\/06\/13 13:30","location":"Polokwane"},
+                        {"home":"4","away":"2","time":"2010\/06\/18 16:00","location":"Johannesburg"},
+                        {"home":"1","away":"3","time":"2010\/06\/18 20:30","location":"Cape Town"},
+                        {"home":"4","away":"1","time":"2010\/06\/23 16:00","location":"Port Elizabeth"},
+                        {"home":"2","away":"3","time":"2010\/06\/23 16:00","location":"Pretoria"}
+                    ]
+                },
+                {
+                    "id":"d",
+                    "team":
+                    [
+                        {"name":"Germany","code":"de"},
+                        {"name":"Australia","code":"au"},
+                        {"name":"Serbia","code":"rs"},
+                        {"name":"Ghana","code":"gh"}
+                    ],
+                    "game":
+                    [
+                        {"home":"1","away":"2","time":"2010\/06\/13 20:30","location":"Durban"},
+                        {"home":"3","away":"4","time":"2010\/06\/13 16:00","location":"Pretoria"},
+                        {"home":"1","away":"3","time":"2010\/06\/18 13:30","location":"Port Elizabeth"},
+                        {"home":"4","away":"2","time":"2010\/06\/19 16:00","location":"Rustenburg"},
+                        {"home":"4","away":"1","time":"2010\/06\/23 20:30","location":"Johannesburg"},
+                        {"home":"2","away":"3","time":"2010\/06\/23 20:30","location":"Nelspruit"}
+                    ]
+                },
+                {
+                    "id":"e",
+                    "team":
+                    [   
+                        {"name":"Netherlands","code":"nl"},
+                        {"name":"Denmark","code":"dk"},
+                        {"name":"Japan","code":"jp"},
+                        {"name":"Cameroon","code":"cm"}
+                    ],
+                    "game":
+                    [
+                        {"home":"1","away":"2","time":"2010\/06\/14 13:30","location":"Johannesburg"},
+                        {"home":"3","away":"4","time":"2010\/06\/14 16:00","location":"Bloemfontein"},
+                        {"home":"1","away":"3","time":"2010\/06\/19 13:30","location":"Durban"},
+                        {"home":"4","away":"2","time":"2010\/06\/19 20:30","location":"Pretoria"},
+                        {"home":"2","away":"3","time":"2010\/06\/24 20:30","location":"Rustenburg"},
+                        {"home":"4","away":"1","time":"2010\/06\/24 20:30","location":"Cape Town"}
+                    ]
+                },
+                {
+                    "id":"f",
+                    "team":
+                    [
+                        {"name":"Italy","code":"it"},
+                        {"name":"Paraguay","code":"py"},
+                        {"name":"New Zeeland","code":"nz"},
+                        {"name":"Slovakia","code":"sk"}
+                    ],
+                    "game":
+                    [
+                        {"home":"1","away":"2","time":"2010\/06\/14 20:30","location":"Cape Town"},
+                        {"home":"3","away":"4","time":"2010\/06\/15 13:30","location":"Rustenburg"},
+                        {"home":"4","away":"2","time":"2010\/06\/20 13:30","location":"Bloemfontein"},
+                        {"home":"1","away":"3","time":"2010\/06\/20 16:00","location":"Nelspruit"},
+                        {"home":"4","away":"1","time":"2010\/06\/24 16:00","location":"Johannesburg"},
+                        {"home":"2","away":"3","time":"2010\/06\/24 16:00","location":"Polokwane"}
+                    ]
+                    },
+                    {
+                        "id":"g",
+                        "team":
+                        [
+                            {"name":"Brazil","code":"br"},
+                            {"name":"Korea DPR","code":"kp"},
+                            {"name":"Ivory coast","code":"ci"},
+                            {"name":"Portugal","code":"pt"}
+                        ],
+                        "game":
+                        [
+                            {"home":"3","away":"4","time":"2010\/06\/15 16:00","location":"Port Elizabeth"},
+                            {"home":"1","away":"2","time":"2010\/06\/15 20:30","location":"Johannesburg"},
+                            {"home":"1","away":"3","time":"2010\/06\/20 20:30","location":"Johannesburg"},
+                            {"home":"4","away":"2","time":"2010\/06\/21 13:30","location":"Cape Town"},
+                            {"home":"4","away":"1","time":"2010\/06\/25 16:00","location":"Durban"},
+                            {"home":"2","away":"3","time":"2010\/06\/25 16:00","location":"Nelspruit"}
+                        ]
+                    },
+                    {
+                        "id":"h",
+                        "team":
+                        [
+                            {"name":"Spain","code":"es"},
+                            {"name":"Switzerland","code":"ch"},
+                            {"name":"Honduras","code":"hn"},
+                            {"name":"Chile","code":"cl"}
+                        ],
+                        "game":
+                        [
+                            {"home":"3","away":"4","time":"2010\/06\/16 13:30","location":"Nelspruit"},
+                            {"home":"1","away":"2","time":"2010\/06\/16 16:00","location":"Durban"},
+                            {"home":"4","away":"2","time":"2010\/06\/21 16:00","location":"Port Elizabeth"},
+                            {"home":"1","away":"3","time":"2010\/06\/21 20:30","location":"Johannesburg"},
+                            {"home":"4","away":"1","time":"2010\/06\/25 20:30","location":"Pretoria"},
+                            {"home":"2","away":"3","time":"2010\/06\/25 20:30","location":"Bloemfontein"}
+                        ]
+                    }
+                ],
+                "finals":
+                [
+                    {
+                        "name":"eight final",
+                        "id":"i",
+                        "team":
+                        [
+                            {"name":"Uruguay","code":"uy"},
+                            {"name":"Korea Republic","code":"kr"},
+                            {"name":"USA","code":"us"},
+                            {"name":"Ghana","code":"gh"},
+                            {"name":"Germany","code":"de"},
+                            {"name":"England","code":"gb"},
+                            {"name":"Argentina","code":"ar"},
+                            {"name":"Mexico","code":"mx"},
+                            {"name":"winner E","code":"unknown"},
+                            {"name":"Slovakia","code":"sk"},
+                            {"name":"winner G","code":"unknown"},
+                            {"name":"second H","code":"unknown"},
+                            {"name":"Paraguay","code":"py"},
+                            {"name":"second E","code":"unknown"},
+                            {"name":"winner H","code":"unknown"},
+                            {"name":"second G","code":"unknown"}
+                        ],
+                        "game":
+                        [
+                            {"nr":"49","home":"1","away":"2","time":"2010\/06\/26 16:00","location":"Port Elizabeth"},
+                            {"nr":"50","home":"3","away":"4","time":"2010\/06\/26 20:30","location":"Rustenburg"},
+                            {"nr":"51","home":"5","away":"6","time":"2010\/06\/27 16:00","location":"Bloemfontein"},
+                            {"nr":"52","home":"7","away":"8","time":"2010\/06\/27 20:30","location":"Johannesburg"},
+                            {"nr":"53","home":"9","away":"10","time":"2010\/06\/28 16:00","location":"Durban"},
+                            {"nr":"54","home":"11","away":"12","time":"2010\/06\/28 20:30","location":"Johannesburg"},
+                            {"nr":"55","home":"13","away":"14","time":"2010\/06\/29 16:00","location":"Pretoria"},
+                            {"nr":"56","home":"15","away":"16","time":"2010\/06\/29 20:30","location":"Cape Town"}
+                        ]
+                    },
+                    {
+                        "name":"quarter final",
+                        "id":"j",
+                        "team":
+                        [
+                            {"name":"winner 49","code":"unknown"},
+                            {"name":"winner 50","code":"unknown"},
+                            {"name":"winner 51","code":"unknown"},
+                            {"name":"winner 52","code":"unknown"},
+                            {"name":"winner 53","code":"unknown"},
+                            {"name":"winner 54","code":"unknown"},
+                            {"name":"winner 55","code":"unknown"},
+                            {"name":"winner 56","code":"unknown"}
+                        ],
+                        "game":
+                        [
+                            {"nr":"57","home":"5","away":"6","time":"2010\/07\/02 16:00","location":"Port Elizabeth"},
+                            {"nr":"58","home":"1","away":"2","time":"2010\/07\/02 20:30","location":"Johannesburg"},
+                            {"nr":"59","home":"4","away":"3","time":"2010\/07\/03 16:00","location":"Cape Town"},
+                            {"nr":"60","home":"7","away":"8","time":"2010\/07\/03 20:30","location":"Johannesburg"}
+                        ]
+                    },
+                    {
+                        "name":"semi final",
+                        "id":"k",
+                        "team":[{"name":"winner 57","code":"unknown"},{"name":"winner 58","code":"unknown"},{"name":"winner 59","code":"unknown"},{"name":"winner 60","code":"unknown"}],"game":[{"nr":"61","home":"2","away":"1","time":"2010\/07\/06 20:30","location":"Cape Town"},{"nr":"62","home":"3","away":"4","time":"2010\/07\/07 20:30","location":"Durban"}]},{"name":"final","id":"l","team":[{"name":"winner 61","code":"unknown"},{"name":"winner 62","code":"unknown"}],"game":{"nr":"64","home":"1","away":"2","time":"2010\/07\/11 20:30","location":"Johannesburg"}}]},{"real":{"name":"real","shortname":"real","fullname":"The Real Score","company":"none","pass":null,"email":"veel","opened":null,"opts":"y,y,n","poules":"1,1,,0,0,,0,3,,0,2,,0,1,,1,2,,1,0,,2,0,,2,1,,4,1,,2,2,,0,2,,1,1,,0,1,,2,2,,0,0,,0,1,,1,0,,4,0,,0,1,,0,1,,1,1,,0,1,,2,1,,2,0,,1,0,,1,0,,1,2,,1,3,,1,2,,1,1,,1,1,,0,2,,1,1,,3,2,,0,0,,0,0,,2,1,,3,1,,7,0,,0,0,,0,3,,0,1,,0,1,,1,0,,2,0,,x,x,,x,x,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"0"},"servertime":1277496127,"list":{"bokito":{"name":"bokito","shortname":"bokito","fullname":"A rather aggressive monkey","company":"blijdorp","pass":null,"email":"veel","opened":null,"opts":"y,y,n","poules":"0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,0,0,,0,1,,1,0,,1,1,,","finals8":"0:w,0,,0,1,,1,0,,1,1:w,,0,0:w,,0,1,,1,0,,1,1:w,,","finals4":"0:w,0,,0,1,,1,0,,1,1:w,,","finals2":"0,0:w,,0,1,,","finals1":"1,0,,","jokers":"0"},"baboon":{"name":"baboon","shortname":"baboon","fullname":"A monkey","company":"blijdorp","pass":null,"email":"veel","opened":null,"opts":"y,y,n","poules":"1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,","finals8":"1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,1,1,,","finals4":"1,1,,1,1,,1,1,,1,1,,","finals2":"1,1,,1,1,,","finals1":"1,1,,","jokers":"0"},"chimp":{"name":"chimp","shortname":"chimp","fullname":"An Ape","company":"blijdorp","pass":null,"email":"veel","opened":null,"opts":"y,y,n","poules":"0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,","finals8":"0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,0,0,,","finals4":"0,0,,0,0,,0,0,,0,0,,","finals2":"0,0,,0,0,,","finals1":"0,0,,","jokers":"0"},"joost":{"name":"joost","shortname":"joost","fullname":"Joost","company":"deal","pass":null,"email":"joost@dealservices.nl","opened":null,"opts":"y,n,n","poules":"1,1,,1,3,,1,0,,2,1,,0,0,,0,0,,2,0,,1,1,,1,1,,2,0,,,,,,,,2,1,,1,2,,0,0,,1,0,,0,2,,1,0,,3,1,,2,2,,2,0,,1,1,,1,2,,1,0,,2,1,,0,0,,2,0,,0,1,,2,0,,0,2,,2,0,,1,2,,1,0,,2,0,,2,1,,0,1,,0,2,,2,0,,3,0,,1,0,,1,2,,0,1,,0,1,,2,0,,1,0,,1,0,,1,2,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"sjoerd":{"name":"sjoerd","shortname":"sjoerd","fullname":"Sjoerd","company":"deal","pass":null,"email":"sjoerd@dealservices.nl","opened":null,"opts":"y,y,n","poules":"0,1,,0,1,,1,1,,1,1,,0,0,,1,1,,1,0,,1,1,,0,1,,1,0,,1,1,,0,1,,1,0,,0,1,,0,1,,2,0,,0,1,,1,0,,1,0,,1,0,,1,0,,1,0,,0,1,,0,1,,1,0,,0,1,,1,0,,1,1,,1,1,,1,1,,1,0,,0,1,,1,1,,3,0,,0,1,,1,0,,1,1,,3,0,,1,0,,1,0,,0,1,,0,2,,0,1,,2,0,,1,0,,2,0,,0,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"habib":{"name":"habib","shortname":"habib","fullname":"Habib","company":"deal","pass":null,"email":"habsky@gmail.com","opened":null,"opts":"y,y,y","poules":"1,2,,0,1,,0,0,,1,1,,1,0,,0,1,,2,0,,1,1,,0,2,,2,1,,1,1,,0,3,,3,1,,1,3,,2,1,,2,0,,0,1,,1,0,,4,0,,1,1,,2,1,,2,0,,0,2,,0,1,,4,2,,0,0,,2,1,,1,1,,0,0,,0,1,,2,0,,0,3,,0,1,,2,0,,0,2,,2,0,,1,1,,3,0,,1,0,,1,0,,1,1,,0,2,,0,1,,2,0,,1,0,,3,0,,0,2,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"1,0,,1,0,,2,1,,2,0,,2,1,,2,0,,0,1,,2,1,,","finals4":"1,0,,0,1,,1,0,,0,1,,","finals2":"1,0,,0,1,,","finals1":"1:w,1,,","jokers":"0"},"binne":{"name":"binne","shortname":"binne","fullname":"Binne Simonides","company":"regas","pass":null,"email":"binne@regas.nl","opened":null,"opts":"y,n,n","poules":"2,1,,1,1,,1,1,,2,1,,2,2,,2,1,,1,0,,0,0,,0,1,,2,1,,1,1,,0,3,,,,,0,1,,1,2,,2,0,,1,3,,1,0,,2,1,,2,0,,2,0,,1,1,,1,3,,1,2,,3,0,,0,2,,3,0,,1,1,,2,1,,0,2,,1,0,,0,1,,2,0,,1,0,,0,1,,1,0,,1,1,,2,0,,2,1,,2,0,,2,2,,0,2,,1,1,,3,0,,1,1,,3,0,,0,3,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,","finals4":"1,0,,1,0,,1,0,,1,0,,","finals2":"1,0,,1,0,,","finals1":"1,0,,","jokers":"1"},"gerben":{"name":"gerben","shortname":"gerben","fullname":"Gerben Kazius","company":"regas","pass":null,"email":"gerben@regas.nl","opened":null,"opts":"y,y,y","poules":"1,2,,1,0,,,,,1,0,,0,0,,2,1,,3,1,,0,0,,0,2,,1,0,,1,1,,0,2,,2,0,,0,3,,1,1,,2,0,,0,1,,2,0,,2,0,,2,3,,1,0,,0,0,,0,2,,1,0,,3,1,,1,2,,4,0,,0,1,,1,0,,1,3,,2,2,,0,2,,0,1,,1,0,,0,2,,0,1,,0,3,,4,0,,2,1,,1,1,,1,1,,0,3,,0,0,,2,0,,0,0,,2,1,,1,2,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"emine":{"name":"emine","shortname":"emine","fullname":"Emine Tokul","company":"almende","pass":null,"email":"emine@almende.com","opened":null,"opts":"y,y,n","poules":"2,1,,2,3,,1,2,,1,1,,1,0,,2,1,,2,1,,1,1,,1,2,,1,2,,1,2,,1,2,,2,1,,1,1,,2,1,,1,0,,0,2,,1,0,,2,0,,0,1,,3,1,,1,0,,1,2,,1,1,,2,1,,1,1,,2,1,,0,1,,1,1,,0,3,,2,1,,0,1,,1,0,,1,0,,0,2,,0,1,,1,2,,3,1,,2,0,,1,1,,1,2,,1,0,,1,1,,2,0,,0,1,,1,0,,0,1,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"tamas":{"name":"tamas","shortname":"tamas","fullname":"Tamas Mahr","company":"aitia","pass":null,"email":"tamas@almende.com","opened":null,"opts":"y,y,y","poules":"2,1,,1,0,,1,1,,1,1,,0,1,,1,0,,2,1,,0,1,,0,1,,1,0,,0,2,,0,3,,1,0,,0,1,,1,1,,2,0,,0,1,,2,0,,2,0,,0,1,,2,0,,1,0,,1,2,,0,1,,3,0,,0,1,,2,0,,1,0,,0,1,,0,2,,1,0,,0,1,,0,1,,1,0,,0,1,,1,0,,1,0,,2,0,,2,0,,1,1,,1,2,,1,2,,0,1,,2,0,,2,1,,2,0,,0,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"jp":{"name":"jp","shortname":"jp","fullname":"Jan Peter Larsen","company":"almende","pass":null,"email":"jp@almende.com","opened":null,"opts":"y,y,n","poules":"0,1,,0,1,,1,0,,1,0,,0,1,,0,1,,1,0,,1,0,,0,1,,1,0,,0,1,,0,1,,1,0,,0,1,,1,0,,1,0,,0,1,,1,0,,1,0,,1,0,,0,1,,1,0,,0,1,,0,1,,3,1,,0,1,,3,1,,0,1,,0,1,,1,3,,1,0,,0,1,,0,1,j,1,0,,0,1,,1,0,,0,1,,1,0,,1,0,,1,0,,0,1,,0,1,,1,0,,1,0,,0,1,,1,0,,0,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,","finals4":"0,1,,1,0,,1,0,,0,1,,","finals2":"0,1,,1,0,,","finals1":"0,1,,","jokers":"1"},"Judith":{"name":"Judith","shortname":"judith","fullname":"Judith Engelsman","company":"almende","pass":null,"email":"judith@almende.org","opened":null,"opts":"y,y,n","poules":"1,1,,1,2,,0,1,,2,1,,1,1,,2,1,,2,1,,0,1,,1,0,,2,1,,1,0,,0,2,,2,1,,0,1,,1,1,,2,1,,2,2,,2,0,,2,1,,2,1,,2,1,,3,0,,0,1,,0,1,,2,0,,0,1,,2,0,,1,0,,0,1,,0,2,,1,1,,0,1,,1,2,j,2,1,,1,2,,1,0,,1,2,,2,0,,2,1,,2,0,,1,2,,0,2,,0,1,,2,1,,0,1,,2,0,,0,2,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"2,0,,1:w,1,,2,1,,1,0,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"ted":{"name":"ted","shortname":"ted","fullname":"Ted Schmidt","company":"sense","pass":null,"email":"ted@almende.org","opened":null,"opts":"y,y,n","poules":"2,1,,1,2,,1,0,,1,1,,2,1,,1,2,,2,1,,1,2,,1,1,,2,1,,2,1,,0,1,,2,1,,0,1,,1,1,,2,0,,1,0,,1,0,,2,1,,1,0,,2,0,,2,0,,0,1,,1,2,,2,1,,0,2,,2,0,,1,1,,0,1,,0,2,,2,0,,0,1,,0,1,,2,0,,0,1,,1,0,,1,1,,2,0,,2,0,,1,0,,0,1,,0,2,,0,1,,2,0,,1,1,,2,0,,0,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"Hans":{"name":"Hans","shortname":"hans","fullname":"Hans Abbink","company":"sense","pass":null,"email":"hans@almende.com","opened":null,"opts":"y,y,n","poules":"0,2,,1,3,,0,1,,1,0,,0,1,,2,1,,2,1,,2,0,,0,1,,2,0,,1,0,,0,2,,2,0,,1,1,,2,1,,2,0,,1,2,,1,0,,2,0,,1,2,,2,0,,2,0,,0,0,,1,0,,2,0,,0,2,,2,0,j,0,1,,1,0,,0,1,,0,0,,0,1,,2,1,,2,0,,0,2,,1,0,,1,0,,2,0,,2,1,,2,1,,0,0,,1,0,,0,1,,1,0,,0,0,,2,0,,1,2,,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"2,1,,1,2,,0,0:w,,1,0,,0,2,,1:w,1,,0,1,,1,0,,","finals4":"2,1,,1,0,,0:w,0,,1,0,,","finals2":"2,0,,1,2,,","finals1":"1,1:w,,","jokers":"3"},"marcel":{"name":"marcel","shortname":"marcel","fullname":"Marcel Prinsen","company":"regas","pass":null,"email":"marcel@regas.nl","opened":null,"opts":"y,y,n","poules":"1,1,,0,0,,0,0,,1,1,,0,0,,1,1,,0,0,,0,1,,0,1,,1,0,,0,1,,0,2,,2,0,,0,1,,0,0,,1,0,,1,0,,2,0,,1,1,,2,2,,2,0,,1,0,,1,1,,0,2,,2,0,,1,2,,2,0,,0,0,,1,0,,0,4,,0,0,,0,0,,0,0,,2,0,,0,1,,2,0,,2,2,,1,1,,0,0,,1,0,,1,1,,0,2,,0,0,,2,0,,2,0,,2,0,,2,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"Jorien":{"name":"Jorien","shortname":"jorien","fullname":"Jorien Kleijwegt","company":"almende","pass":null,"email":"jorien@almende.org","opened":null,"opts":"y,y,y","poules":"0,1,,1,3,,1,1,,2,0,,2,0,,4,0,,3,0,,2,3,,2,1,,2,1,,0,1,,1,4,,2,0,,2,2,,1,0,,3,1,,2,1,,2,1,,2,1,,4,1,,3,2,,2,0,,2,1,,1,2,,3,1,,1,1,,2,0,,0,2,,2,2,,0,2,,3,1,,0,2,,1,1,,3,1,,1,2,,2,2,,1,3,,3,0,,3,1,,1,0,,1,1,,1,2,,1,1,,2,0,,1,0,,3,1,,1,2,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"rien":{"name":"rien","shortname":"rien","fullname":"Rien van Adrichem","company":"ask","pass":null,"email":"rien@almende.com","opened":null,"opts":"y,y,n","poules":"1,0,,1,1,,1,2,,2,1,,1,1,,2,0,,2,0,,1,0,,1,0,,2,1,,0,1,,0,1,,2,0,,1,1,,1,1,,1,0,,1,1,,1,0,,2,1,,2,0,,3,1,,0,1,,0,2,,0,1,,2,1,,0,1,,3,0,,1,2,,2,0,,0,2,,1,1,,0,1,,0,1,,2,0,,1,1,,2,0,,0,1,,2,0,,2,0,,1,0,,1,1,,0,1,,1,1,,1,0,,2,1,,3,0,,1,1,,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"2,0,,1:w,1,,2,1,,3,0,j,1:w,1,,1,1:w,,1:w,1,,1:w,1,,","finals4":"1:w,1,,1:w,1,j,1:w,1,,1:w,1,,","finals2":"1:w,1,,1:w,1,,","finals1":"1:w,1,j,","jokers":"3"},"ludo":{"name":"ludo","shortname":"ludo","fullname":"Ludo Stellingwerff","company":"ask","pass":null,"email":"ludo@stwerff.xs4all.nl","opened":null,"opts":"y,y,n","poules":"1,2,,0,2,,1,1,,2,1,,1,0,,1,1,,2,1,,1,2,,1,1,,2,1,,0,2,,0,2,,2,1,,1,0,,0,1,,2,0,j,1,2,,1,0,,0,1,,1,3,,1,0,,1,0,,1,2,,0,1,,2,1,,1,2,,3,0,,1,0,,1,1,,1,2,,1,0,,1,1,,0,1,,1,0,,1,1,,1,0,,1,2,,2,0,,1,0,,2,0,,1,1,,0,0,,1,1,,2,0,,0,0,,1,0,,1,2,,0,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"2,2:w,,2,1,,2,0,,3,0,,3,1,,1:w,1,,2:w,2,,1,2,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"Gaby":{"name":"Gaby","shortname":"gaby","fullname":"Gaby van Emmenes","company":"ask","pass":null,"email":"gvanemmenes@ask-cs.com","opened":null,"opts":"y,y,y","poules":"0,2,,2,3,,0,2,,3,2,,1,1,,3,0,,3,1,,1,4,,2,1,,4,1,,2,0,,1,2,,2,1,,1,1,,1,2,,3,0,,1,3,,3,1,,3,0,,2,1,,2,0,,1,2,,0,3,,2,2,,4,1,,0,2,,4,0,,2,1,,1,1,,1,3,,4,1,,0,4,,2,2,,5,0,,0,3,,2,0,,1,4,,5,0,,5,1,,3,0,,2,2,,0,1,,2,1,,4,1,,2,2,,4,0,,1,3,,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"kees":{"name":"kees","shortname":"kees","fullname":"Kees Klop","company":"deal","pass":null,"email":"kees@almende.org","opened":null,"opts":"y,y,y","poules":"1,2,,0,1,,0,0,,0,0,,0,1,,1,1,,2,0,,1,1,,0,1,,2,0,,2,1,,0,3,,1,1,,0,2,,1,0,,2,0,,1,2,,2,0,,2,0,,1,2,,2,1,,3,1,,0,1,,0,1,,3,1,,0,1,,2,1,,0,1,,1,0,,1,3,,1,0,,0,3,,0,2,,3,0,,1,2,,2,0,,0,1,,2,0,,2,0,,1,0,,2,1,,0,2,,0,1,,2,0,j,1,1,,1,0,,0,1,,2,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":",,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"3"},"steven":{"name":"steven","shortname":"steven","fullname":"Steven Mulder","company":"sense","pass":null,"email":"steven@sense-os.nl","opened":null,"opts":"y,y,y","poules":"1,1,,2,1,,0,1,,0,1,,2,1,,0,2,,3,1,,0,1,,1,2,,3,0,,2,1,,0,1,,1,1,,2,0,,0,1,,2,0,,1,2,,2,1,,1,0,,1,0,,3,1,,1,0,,1,2,,1,2,,2,1,,0,1,,2,1,,1,1,,2,2,,1,2,,1,1,,0,2,,1,1,j,2,0,,0,1,,1,1,,1,1,,2,0,,2,1,,1,0,,1,1,,0,2,,0,1,,3,0,,2,0,,3,0,,1,2,,2,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"0,1,,,,,,,,,,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"xiaoyu":{"name":"xiaoyu","shortname":"xiaoyu","fullname":"Xiaoyu Mao","company":"almende","pass":null,"email":"xiaoyu@almende.org","opened":null,"opts":"y,y,n","poules":"1,1,,1,1,,1,1,,1,0,,0,0,,1,1,,1,0,,0,1,,0,1,,1,0,,1,1,,0,1,,1,0,,1,1,,0,1,,2,0,,0,1,,1,0,,1,0,,1,1,,1,0,,1,0,,0,1,,0,1,,1,0,,0,1,,1,0,,0,1,,1,1,,0,1,,1,0,,0,1,,0,1,,2,0,,0,1,,1,0,,1,1,,3,0,,1,0,,1,0,,1,1,,0,2,,0,1,,2,0,,1,0,,2,0,,1,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,","finals4":"1,0,,1,0,,1,0,,1,0,,","finals2":"1,0,,1,0,,","finals1":"1,0,,","jokers":"1"},"Freek":{"name":"Freek","shortname":"freek","fullname":"Freek van Polen","company":"sense","pass":null,"email":"freek@almende.org","opened":null,"opts":"y,y,y","poules":"1,3,,2,0,,1,2,,2,0,,1,2,,0,2,,2,1,,1,2,,0,2,,2,1,,1,2,,0,3,,1,0,,1,1,,0,1,,2,1,,0,1,,2,1,,3,0,,2,0,,2,1,,2,0,,1,2,,0,2,,3,1,,1,2,,2,0,,0,1,,2,1,,0,2,,2,0,,1,2,,0,2,j,2,0,,1,1,,2,0,,1,2,,5,0,,2,0,,1,0,,1,2,,0,2,,0,1,,3,0,,2,0,,3,0,,1,2,,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"2,0,,1,2,,2,0,,2,0,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"duco":{"name":"duco","shortname":"duco","fullname":"Duco Ferro","company":"almende","pass":null,"email":"duco@almende.org","opened":null,"opts":"y,y,y","poules":"1,2,,0,1,,1,1,,1,1,,1,0,,1,0,,1,0,,1,2,,0,1,,2,1,,1,1,,0,2,,2,0,,0,1,,1,1,,1,0,,1,2,,1,0,,2,0,,1,0,,1,0,,1,0,,1,3,,1,2,,2,1,,0,1,,2,1,j,1,1,,2,1,,1,2,,2,0,,0,1,,1,1,,2,0,,0,1,,2,1,,0,1,,4,0,,3,0,,2,0,,1,2,,1,2,,0,1,,1,0,,1,1,,2,1,,1,1,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"1,0,,1,0,,1,0,,1,0,,,,,,,,,,,,,,","finals4":",,,,,,,,,,,,","finals2":",,,,,,","finals1":",,,","jokers":"1"},"anne":{"name":"anne","shortname":"anne","fullname":"Anne van Rossum","company":"sense","pass":null,"email":"anne@almende.com","opened":null,"opts":"y,y,y","poules":"1,2,,1,1,,1,1,,1,1,,0,1,,2,0,,2,1,,0,2,,0,1,,2,1,,1,2,,0,2,,2,0,,0,2,,1,2,,1,1,,1,1,,0,1,,3,0,,0,1,,2,0,,1,1,,1,2,,0,1,,1,0,,1,1,,2,1,,1,0,,1,1,,0,1,,2,0,,0,1,,0,0,,2,0,,1,1,,2,0,,1,2,,3,0,,2,1,,2,0,,1,1,,1,1,,1,1,,1,1,,2,0,,2,0,,0,0,,1,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,","finals8":"1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,1,0,,","finals4":"0,0:w,,0,1,,1,0,,1:w,1,,","finals2":"0,1,,1,0,,","finals1":"1,1:w,,","jokers":"1"}}}],"error":null}
