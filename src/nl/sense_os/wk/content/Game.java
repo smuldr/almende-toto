@@ -1,4 +1,4 @@
-package nl.sense_os.wk;
+package nl.sense_os.wk.content;
 
 import java.util.ArrayList;
 
@@ -46,21 +46,19 @@ public class Game implements Parcelable {
 		return game;
 	}
 
-	int idAway;
-	int idHome;
-	boolean joker;
-	String location;
-	String predAway;
-	String predHome;
-	int predPenaltyWinner;
-	String realAway;
-	String realHome;
-	int realPenaltyWinner;
-	String teamAway;
-
-	String teamHome;
-
-	String time;
+	private int idAway;
+	private int idHome;
+	private boolean joker;
+	private String location;
+	private String predAway;
+	private String predHome;
+	private int predPenaltyWinner;
+	private String realAway;
+	private String realHome;
+	private int realPenaltyWinner;
+	private String teamAway;
+	private String teamHome;
+	private String time;
 
 	public Game() {
 		// empty constructor
@@ -83,23 +81,15 @@ public class Game implements Parcelable {
 	}
 
 	public int describeContents() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getMyScore(int round) {
 
-		// String s = "Round " + round + ", " + this.predHome + "-" +
-		// this.predAway + " <<>> " + this.realHome + "-" + this.realAway +
-		// ". Points: ";
-
-		if (this.realHome == null || this.predHome == null
-				|| this.realAway == null || this.predAway == null
-				|| this.realHome.equals("") || this.predHome.equals("")
+		if (this.realHome == null || this.predHome == null || this.realAway == null
+				|| this.predAway == null || this.realHome.equals("") || this.predHome.equals("")
 				|| this.realAway.equals("") || this.predAway.equals("")) {
-
-			// Log.d(TAG, s + "0");
-
+			// cannot calculate score
 			return 0;
 		}
 
@@ -171,10 +161,205 @@ public class Game implements Parcelable {
 		return score;
 	}
 
+	/**
+	 * @return the idAway
+	 */
+	public int getIdAway() {
+		return idAway;
+	}
+
+	/**
+	 * @param idAway
+	 *            the idAway to set
+	 */
+	public void setIdAway(int idAway) {
+		this.idAway = idAway;
+	}
+
+	/**
+	 * @return the idHome
+	 */
+	public int getIdHome() {
+		return idHome;
+	}
+
+	/**
+	 * @param idHome
+	 *            the idHome to set
+	 */
+	public void setIdHome(int idHome) {
+		this.idHome = idHome;
+	}
+
+	/**
+	 * @return the joker
+	 */
+	public boolean isJoker() {
+		return joker;
+	}
+
+	/**
+	 * @param joker
+	 *            the joker to set
+	 */
+	public void setJoker(boolean joker) {
+		this.joker = joker;
+	}
+
+	/**
+	 * @return the location
+	 */
+	public String getLocation() {
+		return location;
+	}
+
+	/**
+	 * @param location
+	 *            the location to set
+	 */
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	/**
+	 * @return the predAway
+	 */
+	public String getPredAway() {
+		return predAway;
+	}
+
+	/**
+	 * @param predAway
+	 *            the predAway to set
+	 */
+	public void setPredAway(String predAway) {
+		this.predAway = predAway;
+	}
+
+	/**
+	 * @return the predHome
+	 */
+	public String getPredHome() {
+		return predHome;
+	}
+
+	/**
+	 * @param predHome
+	 *            the predHome to set
+	 */
+	public void setPredHome(String predHome) {
+		this.predHome = predHome;
+	}
+
+	/**
+	 * @return the predPenaltyWinner
+	 */
+	public int getPredPenaltyWinner() {
+		return predPenaltyWinner;
+	}
+
+	/**
+	 * @param predPenaltyWinner
+	 *            the predPenaltyWinner to set
+	 */
+	public void setPredPenaltyWinner(int predPenaltyWinner) {
+		this.predPenaltyWinner = predPenaltyWinner;
+	}
+
+	/**
+	 * @return the realAway
+	 */
+	public String getRealAway() {
+		return realAway;
+	}
+
+	/**
+	 * @param realAway
+	 *            the realAway to set
+	 */
+	public void setRealAway(String realAway) {
+		this.realAway = realAway;
+	}
+
+	/**
+	 * @return the realHome
+	 */
+	public String getRealHome() {
+		return realHome;
+	}
+
+	/**
+	 * @param realHome
+	 *            the realHome to set
+	 */
+	public void setRealHome(String realHome) {
+		this.realHome = realHome;
+	}
+
+	/**
+	 * @return the realPenaltyWinner
+	 */
+	public int getRealPenaltyWinner() {
+		return realPenaltyWinner;
+	}
+
+	/**
+	 * @param realPenaltyWinner
+	 *            the realPenaltyWinner to set
+	 */
+	public void setRealPenaltyWinner(int realPenaltyWinner) {
+		this.realPenaltyWinner = realPenaltyWinner;
+	}
+
+	/**
+	 * @return the teamAway
+	 */
+	public String getTeamAway() {
+		return teamAway;
+	}
+
+	/**
+	 * @param teamAway
+	 *            the teamAway to set
+	 */
+	public void setTeamAway(String teamAway) {
+		this.teamAway = teamAway;
+	}
+
+	/**
+	 * @return the teamHome
+	 */
+	public String getTeamHome() {
+		return teamHome;
+	}
+
+	/**
+	 * @param teamHome
+	 *            the teamHome to set
+	 */
+	public void setTeamHome(String teamHome) {
+		this.teamHome = teamHome;
+	}
+
+	/**
+	 * @return the time
+	 */
+	public String getTime() {
+		return time;
+	}
+
+	/**
+	 * @param time
+	 *            the time to set
+	 */
+	public void setTime(String time) {
+		this.time = time;
+	}
+
 	public boolean isTotoCorrect() {
 
-		if (this.realAway.equals("x") || this.realHome.equals("x")
-				|| this.realAway.equals("") || this.realHome.equals("")) {
+		if (this.realAway.equals("x") || this.realHome.equals("x") || this.realAway.equals("")
+				|| this.realHome.equals("")) {
 			return false;
 		}
 
@@ -240,8 +425,7 @@ public class Game implements Parcelable {
 
 	@Override
 	public String toString() {
-		return this.teamHome + " - " + this.teamAway + ": " + this.predHome
-				+ " - " + this.predAway;
+		return this.teamHome + " - " + this.teamAway + ": " + this.predHome + " - " + this.predAway;
 	}
 
 	public void writeToParcel(Parcel dest, int flags) {

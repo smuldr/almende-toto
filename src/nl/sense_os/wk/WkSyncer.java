@@ -5,6 +5,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
+import nl.sense_os.wk.shared.Keys;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
@@ -100,8 +102,8 @@ public class WkSyncer extends BroadcastReceiver {
 				// save scores and fixtures in preferences
 				Editor editor = PreferenceManager
 						.getDefaultSharedPreferences(WkSyncer.this.context).edit();
-				editor.putString(Wk.PREF_SCORES, scores.toString());
-				editor.putString(Wk.PREF_FIXTURES, fixtures.toString());
+				editor.putString(Keys.PREF_SCORES, scores.toString());
+				editor.putString(Keys.PREF_FIXTURES, fixtures.toString());
 				editor.commit();
 			} else {
 				Log.w(TAG, "Login failed. Cause: " + this.error);
@@ -188,7 +190,7 @@ public class WkSyncer extends BroadcastReceiver {
 		this.context = context;
 
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		boolean autosync = prefs.getBoolean(Wk.PREF_AUTOSYNC, false);
+		boolean autosync = prefs.getBoolean(Keys.PREF_AUTOSYNC, false);
 
 		// set new alarm
 		AlarmManager mgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -201,8 +203,8 @@ public class WkSyncer extends BroadcastReceiver {
 					.getSystemService(Context.CONNECTIVITY_SERVICE);
 			NetworkInfo info = conn.getActiveNetworkInfo();
 			if ((info != null) && (info.isConnected())) {
-				String name = prefs.getString(Wk.PREF_LOGIN_NAME, "");
-				String pass = prefs.getString(Wk.PREF_LOGIN_PASS, "");
+				String name = prefs.getString(Keys.PREF_LOGIN_NAME, "");
+				String pass = prefs.getString(Keys.PREF_LOGIN_PASS, "");
 				new SyncTask().execute(name, pass);
 			} else {
 				Log.d(TAG, "Not syncing... NetworkInfo=" + (info == null));
@@ -269,8 +271,8 @@ public class WkSyncer extends BroadcastReceiver {
 		if (true == success) {
 			// save scores and fixtures in preferences
 			Editor editor = PreferenceManager.getDefaultSharedPreferences(this.context).edit();
-			editor.putString(Wk.PREF_SCORES, scores.toString());
-			editor.putString(Wk.PREF_FIXTURES, fixtures.toString());
+			editor.putString(Keys.PREF_SCORES, scores.toString());
+			editor.putString(Keys.PREF_FIXTURES, fixtures.toString());
 			editor.commit();
 		} else {
 			Log.w(TAG, "Login failed. Cause: " + this.error);

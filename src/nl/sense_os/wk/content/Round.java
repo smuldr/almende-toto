@@ -1,4 +1,4 @@
-package nl.sense_os.wk;
+package nl.sense_os.wk.content;
 
 import java.util.ArrayList;
 
@@ -75,10 +75,10 @@ public class Round implements Parcelable {
 		return round;
 	}
 
-	ArrayList<Game> games;
-	String id;
-	String name;
-	ArrayList<String> teams;
+	private ArrayList<Game> games;
+	private String id;
+	private String name;
+	private ArrayList<String> teams;
 
 	public Round() {
 		this.games = new ArrayList<Game>();
@@ -90,8 +90,7 @@ public class Round implements Parcelable {
 		this.games = new ArrayList<Game>();
 		final int maxGames = in.readInt();
 		for (int i = 0; i < maxGames; i++) {
-			this.games.add((Game) in
-					.readParcelable(getClass().getClassLoader()));
+			this.games.add((Game) in.readParcelable(getClass().getClassLoader()));
 		}
 		this.id = in.readString();
 		this.name = in.readString();
@@ -107,13 +106,73 @@ public class Round implements Parcelable {
 		return 0;
 	}
 
+	/**
+	 * @return the games
+	 */
+	public ArrayList<Game> getGames() {
+		return games;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return the teams
+	 */
+	public ArrayList<String> getTeams() {
+		return teams;
+	}
+
+	/**
+	 * @param games
+	 *            the games to set
+	 */
+	public void setGames(ArrayList<Game> games) {
+		this.games = games;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @param teams
+	 *            the teams to set
+	 */
+	public void setTeams(ArrayList<String> teams) {
+		this.teams = teams;
+	}
+
 	@Override
 	public String toString() {
 		String string = this.name;
 		for (final Game game : this.games) {
-			string += "\n  " + this.teams.get(game.idHome - 1) + " vs "
-					+ this.teams.get(game.idAway - 1);
-			string += ", " + game.time + ", " + game.location;
+			string += "\n  " + this.teams.get(game.getIdHome() - 1) + " vs "
+					+ this.teams.get(game.getIdAway() - 1);
+			string += ", " + game.getTime() + ", " + game.getLocation();
 		}
 
 		return string;

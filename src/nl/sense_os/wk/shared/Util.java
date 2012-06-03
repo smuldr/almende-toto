@@ -1,10 +1,15 @@
-package nl.sense_os.wk;
+package nl.sense_os.wk.shared;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map.Entry;
+
+import nl.sense_os.wk.content.Game;
+import nl.sense_os.wk.content.Player;
+import nl.sense_os.wk.content.Poule;
+import nl.sense_os.wk.content.Round;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,19 +62,19 @@ public class Util {
 
 				// find penalty winner prediction
 				if (homeToken.contains(":w")) {
-					game.predPenaltyWinner = 1;
-					game.predHome = homeToken.substring(0, homeToken.indexOf(":")).trim();
-					game.predAway = awayToken.trim();
+					game.setPredPenaltyWinner(1);
+					game.setPredHome(homeToken.substring(0, homeToken.indexOf(":")).trim());
+					game.setPredAway(awayToken.trim());
 				} else if (awayToken.contains(":w")) {
-					game.predPenaltyWinner = 2;
-					game.predAway = awayToken.substring(0, awayToken.indexOf(":")).trim();
-					game.predHome = homeToken.trim();
+					game.setPredPenaltyWinner(2);
+					game.setPredAway(awayToken.substring(0, awayToken.indexOf(":")).trim());
+					game.setPredHome(homeToken.trim());
 				} else {
-					game.predHome = homeToken.trim();
-					game.predAway = awayToken.trim();
-					game.predPenaltyWinner = -1;
+					game.setPredHome(homeToken.trim());
+					game.setPredAway(awayToken.trim());
+					game.setPredPenaltyWinner(-1);
 				}
-				game.joker = jokerToken.equals("j");
+				game.setJoker(jokerToken.equals("j"));
 
 				games.add(game);
 				commasFound = 0;
@@ -111,17 +116,17 @@ public class Util {
 
 				// find penalty winner result
 				if (homeToken.contains(":w")) {
-					game.realPenaltyWinner = 1;
-					game.realHome = homeToken.substring(0, homeToken.indexOf(":")).trim();
-					game.realAway = awayToken.trim();
+					game.setRealPenaltyWinner(1);
+					game.setRealHome(homeToken.substring(0, homeToken.indexOf(":")).trim());
+					game.setRealAway(awayToken.trim());
 				} else if (awayToken.contains(":w")) {
-					game.realPenaltyWinner = 2;
-					game.realAway = awayToken.substring(0, awayToken.indexOf(":")).trim();
-					game.realHome = homeToken.trim();
+					game.setRealPenaltyWinner(2);
+					game.setRealAway(awayToken.substring(0, awayToken.indexOf(":")).trim());
+					game.setRealHome(homeToken.trim());
 				} else {
-					game.realHome = homeToken.trim();
-					game.realAway = awayToken.trim();
-					game.realPenaltyWinner = -1;
+					game.setRealHome(homeToken.trim());
+					game.setRealAway(awayToken.trim());
+					game.setRealPenaltyWinner(-1);
 				}
 
 				games.set(gameIndex, game);
@@ -137,9 +142,9 @@ public class Util {
 		String csv = "";
 
 		for (Game game : games) {
-			String homeToken = game.predHome + (game.predPenaltyWinner == 1 ? ":w" : "");
-			String awayToken = game.predAway + (game.predPenaltyWinner == 2 ? ":w" : "");
-			csv += homeToken + "," + awayToken + "," + (game.joker ? "j" : "") + ",";
+			String homeToken = game.getPredHome() + (game.getPredPenaltyWinner() == 1 ? ":w" : "");
+			String awayToken = game.getPredAway() + (game.getPredPenaltyWinner() == 2 ? ":w" : "");
+			csv += homeToken + "," + awayToken + "," + (game.isJoker() ? "j" : "") + ",";
 		}
 
 		return csv;
@@ -150,7 +155,7 @@ public class Util {
 
 		// get important data from preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		String scoreString = prefs.getString(Wk.PREF_SCORES, "");
+		String scoreString = prefs.getString(Keys.PREF_SCORES, "");
 
 		int availableJokers = -1;
 
@@ -180,34 +185,34 @@ public class Util {
 		}
 
 		// put scores in the games
-		Log.d(TAG, "Parse group stage jokers");
+		// Log.d(TAG, "Parse group stage jokers");
 		final ArrayList<Game> groupStage = Util.csvToGames(poulesPred, poulesReal);
 		for (Game game : groupStage) {
-			if (game.joker) {
+			if (game.isJoker()) {
 				availableJokers--;
 			}
 		}
 
-		Log.d(TAG, "Parse quarter finals jokers");
+		// Log.d(TAG, "Parse quarter finals jokers");
 		final ArrayList<Game> finals4 = Util.csvToGames(finals4Pred, finals4Real);
 		for (Game game : finals4) {
-			if (game.joker) {
+			if (game.isJoker()) {
 				availableJokers--;
 			}
 		}
 
-		Log.d(TAG, "Parse semi finals jokers");
+		// Log.d(TAG, "Parse semi finals jokers");
 		final ArrayList<Game> finals2 = Util.csvToGames(finals2Pred, finals2Real);
 		for (Game game : finals2) {
-			if (game.joker) {
+			if (game.isJoker()) {
 				availableJokers--;
 			}
 		}
 
-		Log.d(TAG, "Parse final jokers");
+		// Log.d(TAG, "Parse final jokers");
 		final ArrayList<Game> finals1 = Util.csvToGames(finals1Pred, finals1Real);
 		for (Game game : finals1) {
-			if (game.joker) {
+			if (game.isJoker()) {
 				availableJokers--;
 			}
 		}
@@ -220,8 +225,8 @@ public class Util {
 
 		// get important data from preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		String jsonScores = prefs.getString(Wk.PREF_SCORES, "");
-		String jsonFixtures = prefs.getString(Wk.PREF_FIXTURES, "");
+		String jsonScores = prefs.getString(Keys.PREF_SCORES, "");
+		String jsonFixtures = prefs.getString(Keys.PREF_FIXTURES, "");
 
 		ArrayList<Round> groupStage = new ArrayList<Round>();
 		try {
@@ -262,19 +267,19 @@ public class Util {
 		for (Game game : groupStageGames) {
 			Round round = groupStage.get(roundIndex);
 
-			Game noScores = round.games.get(gameIndex);
-			noScores.predHome = game.predHome;
-			noScores.predAway = game.predAway;
-			noScores.predPenaltyWinner = game.predPenaltyWinner;
-			noScores.realHome = game.realHome;
-			noScores.realAway = game.realAway;
-			noScores.realPenaltyWinner = game.realPenaltyWinner;
-			noScores.joker = game.joker;
-			round.games.set(gameIndex, noScores);
+			Game noScores = round.getGames().get(gameIndex);
+			noScores.setPredHome(game.getPredHome());
+			noScores.setPredAway(game.getPredAway());
+			noScores.setPredPenaltyWinner(game.getPredPenaltyWinner());
+			noScores.setRealHome(game.getRealHome());
+			noScores.setRealAway(game.getRealAway());
+			noScores.setRealPenaltyWinner(game.getRealPenaltyWinner());
+			noScores.setJoker(game.isJoker());
+			round.getGames().set(gameIndex, noScores);
 			groupStage.set(roundIndex, round);
 			gameIndex++;
 
-			if (gameIndex >= round.games.size()) {
+			if (gameIndex >= round.getGames().size()) {
 				roundIndex++;
 				gameIndex = 0;
 			}
@@ -292,8 +297,8 @@ public class Util {
 
 		// get important data from preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		String jsonScores = prefs.getString(Wk.PREF_SCORES, "");
-		String jsonFixtures = prefs.getString(Wk.PREF_FIXTURES, "");
+		String jsonScores = prefs.getString(Keys.PREF_SCORES, "");
+		String jsonFixtures = prefs.getString(Keys.PREF_FIXTURES, "");
 
 		ArrayList<Round> finals = new ArrayList<Round>();
 		try {
@@ -335,46 +340,46 @@ public class Util {
 
 		final ArrayList<Game> finals4Games = Util.csvToGames(finals4Pred, finals4Real);
 		final Round finals4NoScores = finals.get(0);
-		for (int i = 0; i < finals4NoScores.games.size(); i++) {
+		for (int i = 0; i < finals4NoScores.getGames().size(); i++) {
 			Game noTeams = finals4Games.get(i);
-			Game noScores = finals4NoScores.games.get(i);
-			noScores.predHome = noTeams.predHome;
-			noScores.predAway = noTeams.predAway;
-			noScores.predPenaltyWinner = noTeams.predPenaltyWinner;
-			noScores.realHome = noTeams.realHome;
-			noScores.realAway = noTeams.realAway;
-			noScores.realPenaltyWinner = noTeams.realPenaltyWinner;
-			finals4NoScores.games.set(i, noScores);
+			Game noScores = finals4NoScores.getGames().get(i);
+			noScores.setPredHome(noTeams.getPredHome());
+			noScores.setPredAway(noTeams.getPredAway());
+			noScores.setPredPenaltyWinner(noTeams.getPredPenaltyWinner());
+			noScores.setRealHome(noTeams.getRealHome());
+			noScores.setRealAway(noTeams.getRealAway());
+			noScores.setRealPenaltyWinner(noTeams.getRealPenaltyWinner());
+			finals4NoScores.getGames().set(i, noScores);
 		}
 		finals.set(0, finals4NoScores);
 
 		final ArrayList<Game> finals2Games = Util.csvToGames(finals2Pred, finals2Real);
 		final Round finals2NoScores = finals.get(1);
-		for (int i = 0; i < finals2NoScores.games.size(); i++) {
+		for (int i = 0; i < finals2NoScores.getGames().size(); i++) {
 			Game noTeams = finals2Games.get(i);
-			Game noScores = finals2NoScores.games.get(i);
-			noScores.predHome = noTeams.predHome;
-			noScores.predAway = noTeams.predAway;
-			noScores.predPenaltyWinner = noTeams.predPenaltyWinner;
-			noScores.realHome = noTeams.realHome;
-			noScores.realAway = noTeams.realAway;
-			noScores.realPenaltyWinner = noTeams.realPenaltyWinner;
-			finals2NoScores.games.set(i, noScores);
+			Game noScores = finals2NoScores.getGames().get(i);
+			noScores.setPredHome(noTeams.getPredHome());
+			noScores.setPredAway(noTeams.getPredAway());
+			noScores.setPredPenaltyWinner(noTeams.getPredPenaltyWinner());
+			noScores.setRealHome(noTeams.getRealHome());
+			noScores.setRealAway(noTeams.getRealAway());
+			noScores.setRealPenaltyWinner(noTeams.getRealPenaltyWinner());
+			finals2NoScores.getGames().set(i, noScores);
 		}
 		finals.set(1, finals2NoScores);
 
 		final ArrayList<Game> finals1Games = Util.csvToGames(finals1Pred, finals1Real);
 		final Round finals1NoScores = finals.get(2);
-		for (int i = 0; i < finals1NoScores.games.size(); i++) {
+		for (int i = 0; i < finals1NoScores.getGames().size(); i++) {
 			Game noTeams = finals1Games.get(i);
-			Game noScores = finals1NoScores.games.get(i);
-			noScores.predHome = noTeams.predHome;
-			noScores.predAway = noTeams.predAway;
-			noScores.predPenaltyWinner = noTeams.predPenaltyWinner;
-			noScores.realHome = noTeams.realHome;
-			noScores.realAway = noTeams.realAway;
-			noScores.realPenaltyWinner = noTeams.realPenaltyWinner;
-			finals1NoScores.games.set(i, noScores);
+			Game noScores = finals1NoScores.getGames().get(i);
+			noScores.setPredHome(noTeams.getPredHome());
+			noScores.setPredAway(noTeams.getPredAway());
+			noScores.setPredPenaltyWinner(noTeams.getPredPenaltyWinner());
+			noScores.setRealHome(noTeams.getRealHome());
+			noScores.setRealAway(noTeams.getRealAway());
+			noScores.setRealPenaltyWinner(noTeams.getRealPenaltyWinner());
+			finals1NoScores.getGames().set(i, noScores);
 		}
 		finals.set(2, finals1NoScores);
 
@@ -387,7 +392,7 @@ public class Util {
 
 		// get important data from preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		String jsonScores = prefs.getString(Wk.PREF_SCORES, "");
+		String jsonScores = prefs.getString(Keys.PREF_SCORES, "");
 
 		Poule poule = new Poule();
 
@@ -399,7 +404,7 @@ public class Util {
 			while (names.hasNext()) {
 				String name = names.next();
 				Player player = Player.parsePlayer(context, list.getJSONObject(name));
-				poule.players.put(player.username, player);
+				poule.players.put(player.getUsername(), player);
 			}
 		} catch (JSONException e) {
 			Log.e(TAG, "JSONException parsing players.", e);
@@ -413,14 +418,14 @@ public class Util {
 		int score = 0;
 
 		for (Round round : groupStage) {
-			for (Game game : round.games) {
+			for (Game game : round.getGames()) {
 				score += game.getMyScore(1);
 			}
 		}
 
 		int roundNr = 2;
 		for (Round round : finals) {
-			for (Game game : round.games) {
+			for (Game game : round.getGames()) {
 				score += game.getMyScore(roundNr);
 			}
 			roundNr++;
@@ -440,8 +445,8 @@ public class Util {
 		Collections.sort(standings, new Comparator<Player>() {
 
 			public int compare(Player object1, Player object2) {
-				int score1 = Util.getTotalScore(object1.groupStage, object1.finals);
-				int score2 = Util.getTotalScore(object2.groupStage, object2.finals);
+				int score1 = Util.getTotalScore(object1.getGroupStage(), object1.getFinals());
+				int score2 = Util.getTotalScore(object2.getGroupStage(), object2.getFinals());
 
 				return score2 - score1;
 			}

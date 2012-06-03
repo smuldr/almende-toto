@@ -1,121 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
-    <LinearLayout
-        android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        >
-		<TableLayout
-		    xmlns:android="http://schemas.android.com/apk/res/android"
-		    android:layout_width="0dp"
-		    android:layout_height="wrap_content"
-		    android:layout_weight="1"
-		    android:stretchColumns="0"
-		    >
-		    <TableRow
-		        android:layout_height="wrap_content"
-		        android:layout_width="fill_parent"
-		        android:gravity="center_vertical"
-		        >
-		        <TextView
-		            android:id="@+id/TeamHome"
-		            android:layout_width="fill_parent"
-		            android:layout_height="wrap_content"
-		            android:layout_margin="5dp"
-		            android:text="Home team"
-		            android:textSize="18sp"
-		            />
-		        <EditText
-		            android:id="@+id/ScoreHome"
-		            android:layout_width="fill_parent"
-		            android:layout_height="wrap_content"
-		            android:layout_margin="5dp"
-		            android:gravity="center_horizontal"
-		            android:text="3"
-		            android:inputType="number"
-		            android:lines="1"
-		            android:imeOptions="actionNext"
-		            />
-		    </TableRow>
-		    <TableRow
-		        android:layout_height="wrap_content"
-		        android:layout_width="fill_parent"
-		        android:gravity="center_vertical"
-		        >
-		        <TextView
-		            android:id="@+id/TeamAway"
-		            android:layout_width="fill_parent"
-		            android:layout_height="wrap_content"
-		            android:layout_margin="5dp"
-		            android:text="Away team"
-		            android:textSize="18sp"
-		            />
-		        <EditText
-		            android:id="@+id/ScoreAway"
-		            android:layout_width="50dp"
-		            android:layout_height="wrap_content"
-		            android:layout_margin="5dp"
-		            android:gravity="center_horizontal"
-		            android:text="1"
-                    android:inputType="number"
-                    android:lines="1"
-                    android:imeOptions="actionDone"
-		            />    
-			</TableRow>
-			    <TableRow
-			        android:layout_height="wrap_content"
-			        android:layout_width="fill_parent"
-			        android:layout_margin="5dp"
-			        android:gravity="center_vertical"
-			        >
-			        <CheckBox
-			            android:id="@+id/JokerCB"
-			            android:layout_height="wrap_content"
-			            android:layout_width="wrap_content"
-			            android:layout_margin="5dp"
-			            android:text="Joker"
-			            />
-			    </TableRow>
-		</TableLayout>
-		<RadioGroup 
-		    android:id="@+id/RadioGroup01" 
-		    android:layout_width="wrap_content" 
-		    android:layout_height="wrap_content">
-			<RadioButton 
-			    android:id="@+id/HomeRadioButton" 
-			    android:layout_width="wrap_content" 
-			    android:layout_height="wrap_content"
-			            android:layout_margin="5dp"
-			    />
-			<RadioButton 
-			    android:id="@+id/AwayRadioButton" 
-			    android:layout_width="wrap_content" 
-			    android:layout_height="wrap_content"
-			            android:layout_margin="5dp"
-			    />
-	    </RadioGroup>
-	</LinearLayout>
-	<LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="center_horizontal">
-        <Button
-           android:id="@+id/SaveButton"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:text="Save"
-           />
-        <Button
-           android:id="@+id/BackButton"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:text="Back"
-           />
-	</LinearLayout>
+        android:layout_weight="1"
+        android:stretchColumns="0" >
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/TeamHome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@android:string/unknownName"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/ScoreHome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center_horizontal"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:lines="1" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/TeamAway"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@android:string/unknownName"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/ScoreAway"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center_horizontal"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:lines="1" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical" >
+
+            <CheckBox
+                android:id="@+id/JokerCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/joker" />
+        </TableRow>
+    </TableLayout>
+
+    <RadioGroup
+        android:id="@+id/RadioGroup01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/HomeRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp" />
+
+        <RadioButton
+            android:id="@+id/AwayRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp" />
+    </RadioGroup>
+
 </LinearLayout>

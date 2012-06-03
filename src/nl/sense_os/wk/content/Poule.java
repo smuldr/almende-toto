@@ -1,4 +1,4 @@
-package nl.sense_os.wk;
+package nl.sense_os.wk.content;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -37,8 +37,22 @@ public class Poule implements Parcelable {
 
 	@Override
 	public int describeContents() {
-
 		return 0;
+	}
+
+	/**
+	 * @return the players
+	 */
+	public HashMap<String, Player> getPlayers() {
+		return players;
+	}
+
+	/**
+	 * @param players
+	 *            the players to set
+	 */
+	public void setPlayers(HashMap<String, Player> players) {
+		this.players = players;
 	}
 
 	@Override

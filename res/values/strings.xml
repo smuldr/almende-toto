@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Almende Voetbalpoule</string>
     <string name="app_label">Almende EK</string>
     <string name="standings_label">Standings</string>
     <string name="prediction_label">Prediction</string>
-    <string name="menu_autosync_off">Turn off autosync</string><string name="menu_autosync_on">Turn on autosync</string><string name="menu_finals">Finals</string><string name="menu_groups">Groups</string><string name="menu_login">Change user</string><string name="menu_my_prediction">My Scores</string>
-    
+    <string name="menu_autosync_off">Turn off auto sync</string>
+    <string name="menu_autosync_on">Turn on auto sync</string>
+    <string name="menu_finals">Finals</string>
+    <string name="menu_groups">Groups</string>
+    <string name="menu_login">Change user</string>
+    <string name="menu_my_prediction">My Scores</string>
     <string name="menu_sync">Sync</string>
-    
-    
-    
-    
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="joker">Joker</string>
+    <string name="save">Save</string>
+    <string name="edit_prediction">Edit prediction</string>
+    <string name="init_progress">Initializing…</string>
+    <string name="login_progress">Logging in…</string>
+    <string name="sync_progress">Synchronizing data…</string>
+    <string name="write_progress">Writing scores…</string>
 </resources>

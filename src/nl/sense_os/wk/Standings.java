@@ -8,6 +8,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
+import nl.sense_os.wk.content.Player;
+import nl.sense_os.wk.content.Poule;
+import nl.sense_os.wk.shared.Keys;
+import nl.sense_os.wk.shared.Util;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
@@ -17,7 +22,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -32,51 +36,119 @@ import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.InputType;
-import android.text.method.PasswordTransformationMethod;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Wk extends Activity {
+public class Standings extends FragmentActivity {
 
 	private class InitPouleTask extends AsyncTask<Void, Void, Poule> {
 
 		@Override
 		protected Poule doInBackground(Void... params) {
 
-			return Util.getPoule(Wk.this);
+			return Util.getPoule(Standings.this);
 		}
 
 		@Override
 		protected void onPostExecute(Poule poule) {
 
-			dismissDialog(DIALOG_INITIALIZING);
-			initializing = false;
+			setDialogInitialize(false);
 
 			// save players object
-			Wk.this.poule = poule;
+			Standings.this.poule = poule;
 
 			onLogIn();
 		}
 
 		@Override
 		protected void onPreExecute() {
+			setDialogInitialize(true);
+		}
+	}
 
-			showDialog(DIALOG_INITIALIZING);
+	private class LoginDialog extends DialogFragment {
 
-			initializing = true;
+		private String md5(String pass) {
+			MessageDigest sha;
+			try {
+				sha = MessageDigest.getInstance("MD5");
+			} catch (final NoSuchAlgorithmException e1) {
+				return null;
+			}
+			final byte[] passBytes = pass.getBytes();
+
+			sha.update(passBytes);
+			final byte[] passwordSha1 = sha.digest();
+			String passStringSha1 = "";
+			for (final byte b : passwordSha1) {
+				String s = Integer.toHexString(b & 0x0FF);
+				if (s.length() < 2) {
+					s = "0" + s;
+				}
+				passStringSha1 += s;
+			}
+			return passStringSha1;
+		}
+
+		public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+			LayoutInflater inflater = getActivity().getLayoutInflater();
+			View view = inflater.inflate(R.layout.login_dialog, null, false);
+
+			final EditText usernameField = (EditText) view.findViewById(R.id.username);
+			final EditText passField = (EditText) view.findViewById(R.id.password);
+
+			// get current login email from preferences
+			final SharedPreferences prefs = PreferenceManager
+					.getDefaultSharedPreferences(getActivity());
+			usernameField.setText(prefs.getString(Keys.PREF_LOGIN_NAME, ""));
+
+			final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+			builder.setTitle("Log in");
+			builder.setView(view);
+			builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					final String name = usernameField.getText().toString();
+					final String pass = passField.getText().toString();
+
+					// put md5 string
+					final String MD5Pass = md5(pass);
+
+					final Editor editor = prefs.edit();
+					editor.putString(Keys.PREF_LOGIN_NAME, name);
+					editor.putString(Keys.PREF_LOGIN_PASS, MD5Pass);
+					editor.commit();
+
+					// initiate Login
+					new LoginTask().execute(name, MD5Pass);
+				}
+			});
+			builder.setNegativeButton(android.R.string.cancel, new OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					finish();
+				}
+			});
+
+			setCancelable(false);
+
+			return builder.create();
 		}
 	}
 
@@ -146,38 +218,38 @@ public class Wk extends Activity {
 		@Override
 		protected void onPostExecute(Boolean success) {
 
-			removeDialog(DIALOG_PROGRESS);
+			setDialogLoginProgress(false);
 
 			if (true == success) {
 				// save scores and fixtures in preferences
 				final SharedPreferences prefs = PreferenceManager
-						.getDefaultSharedPreferences(Wk.this);
+						.getDefaultSharedPreferences(Standings.this);
 				final Editor editor = prefs.edit();
 
 				// start inittask if the scores are changed
-				if (false == this.scores.equals(prefs.getString(Wk.PREF_SCORES, ""))) {
-					editor.putString(PREF_SCORES, this.scores.toString());
-					editor.putString(PREF_FIXTURES, this.fixtures.toString());
+				if (false == this.scores.equals(prefs.getString(Keys.PREF_SCORES, ""))) {
+					editor.putString(Keys.PREF_SCORES, this.scores.toString());
+					editor.putString(Keys.PREF_FIXTURES, this.fixtures.toString());
 
 					new InitPouleTask().execute();
 				}
 
-				editor.putString(PREF_LOGIN_NAME, this.name);
-				editor.putString(PREF_LOGIN_PASS, this.pass);
+				editor.putString(Keys.PREF_LOGIN_NAME, this.name);
+				editor.putString(Keys.PREF_LOGIN_PASS, this.pass);
 				editor.commit();
 
 				onLogIn();
 			} else {
-				Toast.makeText(Wk.this, "Login failed. Cause: " + this.error, Toast.LENGTH_LONG)
+				Toast.makeText(Standings.this, "Login failed. Cause: " + this.error, Toast.LENGTH_LONG)
 						.show();
 
-				showDialog(DIALOG_LOGIN);
+				setDialogLogin(true);
 			}
 		}
 
 		@Override
 		protected void onPreExecute() {
-			showDialog(DIALOG_PROGRESS);
+			setDialogLoginProgress(true);
 
 			onLogOut();
 		}
@@ -262,8 +334,8 @@ public class Wk extends Activity {
 			String fullName = lbl.substring(nameStart, nameEnd);
 			String username = fullName;
 			for (Player player : poule.players.values()) {
-				if (fullName.equals(player.fullName)) {
-					username = player.username;
+				if (fullName.equals(player.getFullName())) {
+					username = player.getUsername();
 					break;
 				}
 			}
@@ -273,16 +345,6 @@ public class Wk extends Activity {
 		}
 	}
 
-	private static final int DIALOG_INITIALIZING = 1;
-	private static final int DIALOG_LOGIN = 2;
-	private static final int DIALOG_PROGRESS = 3;
-	public static final String KEY_POULE = "nl.sense_os.wk.Poule";
-	public static final String KEY_PLAYER = "nl.sense_os.wk.PlayerName";
-	public static final String PREF_AUTOSYNC = "autosync";
-	public static final String PREF_FIXTURES = "fixtures";
-	public static final String PREF_LOGIN_NAME = "login_name";
-	public static final String PREF_LOGIN_PASS = "login_pass";
-	public static final String PREF_SCORES = "scores";
 	public static final int REQID_PREDICTION = 32;
 	private static final String TAG = "WK";
 
@@ -290,108 +352,12 @@ public class Wk extends Activity {
 	private Poule poule;
 	private ListView listView;
 
-	private Dialog createDialogInitializing() {
-		final ProgressDialog dialog = new ProgressDialog(this);
-		dialog.setMessage("Initializing...");
-		dialog.setCancelable(false);
-		return dialog;
-	}
-
-	/**
-	 * @return a login dialog.
-	 */
-	private Dialog createDialogLogin() {
-
-		// create View with input fields for dialog content
-		final LinearLayout login = new LinearLayout(this);
-		login.setOrientation(LinearLayout.VERTICAL);
-		final EditText emailField = new EditText(this);
-		emailField.setLayoutParams(new LayoutParams(-1, -2));
-		emailField.setHint("Username");
-		emailField.setInputType(InputType.TYPE_CLASS_TEXT
-				| InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-		emailField.setImeOptions(EditorInfo.IME_ACTION_NEXT);
-		login.addView(emailField);
-		final EditText passField = new EditText(this);
-		passField.setLayoutParams(new LayoutParams(-1, -2));
-		passField.setHint("Password");
-		passField.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-		passField.setTransformationMethod(new PasswordTransformationMethod());
-		passField.setImeOptions(EditorInfo.IME_ACTION_DONE);
-		login.addView(passField);
-
-		// get current login email from preferences
-		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		emailField.setText(prefs.getString(PREF_LOGIN_NAME, ""));
-
-		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("Log in");
-		builder.setView(login);
-		builder.setPositiveButton("Log in", new OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				final String name = emailField.getText().toString();
-				final String pass = passField.getText().toString();
-
-				// put md5 string
-				final String MD5Pass = md5(pass);
-
-				final Editor editor = prefs.edit();
-				editor.putString(PREF_LOGIN_NAME, name);
-				editor.putString(PREF_LOGIN_PASS, MD5Pass);
-				editor.commit();
-
-				// initiate Login
-				new LoginTask().execute(name, MD5Pass);
-			}
-		});
-		builder.setNeutralButton("Close", new OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				finish();
-			}
-		});
-		builder.setCancelable(false);
-		return builder.create();
-	}
-
-	private Dialog createDialogProgress() {
-		final ProgressDialog dialog = new ProgressDialog(this);
-		dialog.setMessage("Logging in...");
-		dialog.setCancelable(false);
-		return dialog;
-	}
-
-	private String md5(String pass) {
-		MessageDigest sha;
-		try {
-			sha = MessageDigest.getInstance("MD5");
-		} catch (final NoSuchAlgorithmException e1) {
-			return null;
-		}
-		final byte[] passBytes = pass.getBytes();
-
-		sha.update(passBytes);
-		final byte[] passwordSha1 = sha.digest();
-		String passStringSha1 = "";
-		for (final byte b : passwordSha1) {
-			String s = Integer.toHexString(b & 0x0FF);
-			if (s.length() < 2) {
-				s = "0" + s;
-			}
-			passStringSha1 += s;
-		}
-		return passStringSha1;
-	}
-
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
 		case REQID_PREDICTION:
 			if (resultCode == RESULT_OK) {
-				this.poule = (Poule) data.getParcelableExtra(KEY_POULE);
+				this.poule = (Poule) data.getParcelableExtra(Keys.KEY_POULE);
 			} else {
 				// no changes were made in the predictions activity
 			}
@@ -402,43 +368,11 @@ public class Wk extends Activity {
 		}
 	}
 
-	private void showPrediction(String username) {
-		final Intent prediction = new Intent(this, Prediction.class);
-		prediction.putExtra(KEY_PLAYER, username);
-		prediction.putExtra(KEY_POULE, this.poule);
-		startActivityForResult(prediction, REQID_PREDICTION);
-	}
-
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.standings);
-
-		final Object data = getLastNonConfigurationInstance();
-		if (null != data) {
-			this.poule = (Poule) data;
-		}
-	}
-
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		Dialog dialog = null;
-		switch (id) {
-		case DIALOG_INITIALIZING:
-			dialog = createDialogInitializing();
-			break;
-		case DIALOG_LOGIN:
-			dialog = createDialogLogin();
-			break;
-		case DIALOG_PROGRESS:
-			dialog = createDialogProgress();
-			break;
-		default:
-			Log.e(TAG, "Error in onCreateDialog: unexpected dialog id: " + id);
-			break;
-		}
-		return dialog;
 	}
 
 	@Override
@@ -469,7 +403,7 @@ public class Wk extends Activity {
 			int oldScore = -1;
 			for (int i = 0; i < standings.size(); i++) {
 				Player p = standings.get(i);
-				int pScore = Util.getTotalScore(p.groupStage, p.finals);
+				int pScore = Util.getTotalScore(p.getGroupStage(), p.getFinals());
 
 				if (pScore != oldScore) {
 					oldScore = pScore;
@@ -479,14 +413,14 @@ public class Wk extends Activity {
 					rankStep++;
 				}
 
-				standingsArray[i] = rank + ". " + p.fullName + " (" + pScore + ")";
+				standingsArray[i] = rank + ". " + p.getFullName() + " (" + pScore + ")";
 			}
 			listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
 					android.R.id.text1, standingsArray));
 			listView.setOnItemClickListener(new StandingsListener());
 
 			// start syncing
-			if (prefs.getBoolean(PREF_AUTOSYNC, false)) {
+			if (prefs.getBoolean(Keys.PREF_AUTOSYNC, false)) {
 				AlarmManager mgr = (AlarmManager) getSystemService(ALARM_SERVICE);
 				PendingIntent operation = PendingIntent.getBroadcast(this, WkSyncer.REQID_SYNC,
 						new Intent("nl.sense_os.wk.Sync"), 0);
@@ -503,17 +437,17 @@ public class Wk extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_login:
-			showDialog(DIALOG_LOGIN);
+			setDialogLogin(true);
 			break;
 		case R.id.menu_sync:
 			final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-			final String name = prefs.getString(PREF_LOGIN_NAME, "");
-			final String pass = prefs.getString(PREF_LOGIN_PASS, "");
+			final String name = prefs.getString(Keys.PREF_LOGIN_NAME, "");
+			final String pass = prefs.getString(Keys.PREF_LOGIN_PASS, "");
 			new LoginTask().execute(name, pass);
 			break;
 		case R.id.menu_autosync_off:
 			Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
-			editor.putBoolean(PREF_AUTOSYNC, false);
+			editor.putBoolean(Keys.PREF_AUTOSYNC, false);
 			editor.commit();
 
 			// set new alarm
@@ -524,7 +458,7 @@ public class Wk extends Activity {
 			break;
 		case R.id.menu_autosync_on:
 			editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
-			editor.putBoolean(PREF_AUTOSYNC, true);
+			editor.putBoolean(Keys.PREF_AUTOSYNC, true);
 			editor.commit();
 
 			// set new alarm
@@ -535,7 +469,7 @@ public class Wk extends Activity {
 			break;
 		case R.id.menu_prediction:
 			String username = PreferenceManager.getDefaultSharedPreferences(this).getString(
-					PREF_LOGIN_NAME, "");
+					Keys.PREF_LOGIN_NAME, "");
 			showPrediction(username);
 			break;
 		default:
@@ -548,7 +482,7 @@ public class Wk extends Activity {
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		boolean autosync = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-				PREF_AUTOSYNC, false);
+				Keys.PREF_AUTOSYNC, false);
 		menu.findItem(R.id.menu_autosync_on).setVisible(!autosync);
 		menu.findItem(R.id.menu_autosync_off).setVisible(autosync);
 		return true;
@@ -560,16 +494,78 @@ public class Wk extends Activity {
 
 		// check login
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		final String pass = prefs.getString(PREF_LOGIN_PASS, "");
+		final String pass = prefs.getString(Keys.PREF_LOGIN_PASS, "");
 		if (pass.equals("")) {
-			showDialog(DIALOG_LOGIN);
+			setDialogLogin(true);
 		} else {
 			onLogIn();
 		}
 	}
 
-	@Override
-	public Object onRetainNonConfigurationInstance() {
-		return this.poule;
+	private void setDialogInitialize(boolean enable) {
+		if (enable) {
+			DialogFragment fragment = new DialogFragment() {
+
+				@Override
+				public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+					setCancelable(false);
+
+					ProgressDialog dialog = new ProgressDialog(getActivity());
+					dialog.setMessage(getString(R.string.init_progress));
+
+					return dialog;
+				};
+			};
+			fragment.show(getSupportFragmentManager(), "init");
+		} else {
+			Fragment fragment = getSupportFragmentManager().findFragmentByTag("init");
+			if (null != fragment) {
+				((DialogFragment) fragment).dismiss();
+			}
+		}
+	}
+
+	private void setDialogLogin(boolean enable) {
+		if (enable) {
+			LoginDialog dialog = new LoginDialog();
+			dialog.show(getSupportFragmentManager(), "login");
+		} else {
+			Fragment fragment = getSupportFragmentManager().findFragmentByTag("login");
+			if (null != fragment) {
+				((LoginDialog) fragment).dismiss();
+			}
+		}
+	}
+
+	private void setDialogLoginProgress(boolean enable) {
+		if (enable) {
+			DialogFragment fragment = new DialogFragment() {
+
+				@Override
+				public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+					setCancelable(false);
+
+					ProgressDialog dialog = new ProgressDialog(getActivity());
+					dialog.setMessage(getString(R.string.login_progress));
+
+					return dialog;
+				};
+			};
+			fragment.show(getSupportFragmentManager(), "loginProgress");
+		} else {
+			Fragment fragment = getSupportFragmentManager().findFragmentByTag("loginProgress");
+			if (null != fragment) {
+				((DialogFragment) fragment).dismiss();
+			}
+		}
+	}
+
+	private void showPrediction(String username) {
+		final Intent prediction = new Intent(this, Prediction.class);
+		prediction.putExtra(Keys.KEY_PLAYER, username);
+		prediction.putExtra(Keys.KEY_POULE, this.poule);
+		startActivityForResult(prediction, REQID_PREDICTION);
 	}
 }
