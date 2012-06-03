@@ -1,10 +1,9 @@
-package nl.sense_os.wk.sync;
+package com.almende.toto.sync;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import nl.sense_os.wk.shared.Keys;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -14,6 +13,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.almende.toto.shared.Keys;
 
 import android.app.IntentService;
 import android.content.Context;

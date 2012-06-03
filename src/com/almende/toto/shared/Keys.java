@@ -1,4 +1,4 @@
-package nl.sense_os.wk.shared;
+package com.almende.toto.shared;
 
 public class Keys {
 

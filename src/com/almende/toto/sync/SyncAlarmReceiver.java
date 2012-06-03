@@ -1,6 +1,5 @@
-package nl.sense_os.wk.sync;
+package com.almende.toto.sync;
 
-import nl.sense_os.wk.shared.Keys;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -9,9 +8,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.almende.toto.shared.Keys;
+
 public class SyncAlarmReceiver extends BroadcastReceiver {
 
-	private static final String ACTION = "nl.sense_os.wk.SYNCHRONIZE";
+	private static final String ACTION = "com.almende.toto.SYNCHRONIZE";
 	private static final int REQ_CODE_AWAKE = 241;
 	private static final int REQ_CODE_WAKEUP = 0x0221a2;
 	private static final long INTERVAL_AWAKE = AlarmManager.INTERVAL_HALF_HOUR;

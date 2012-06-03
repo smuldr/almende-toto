@@ -1,4 +1,4 @@
-package nl.sense_os.wk.content;
+package com.almende.toto.content;
 
 import java.util.ArrayList;
 

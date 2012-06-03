@@ -1,4 +1,4 @@
-package nl.sense_os.wk;
+package com.almende.toto;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -6,12 +6,6 @@ import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-
-import nl.sense_os.wk.content.Player;
-import nl.sense_os.wk.content.Poule;
-import nl.sense_os.wk.shared.Keys;
-import nl.sense_os.wk.shared.Util;
-import nl.sense_os.wk.sync.SyncAlarmReceiver;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -48,6 +42,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.almende.toto.content.Player;
+import com.almende.toto.content.Poule;
+import com.almende.toto.shared.Keys;
+import com.almende.toto.shared.Util;
+import com.almende.toto.sync.SyncAlarmReceiver;
 
 public class Standings extends FragmentActivity {
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nl.sense_os.wk"
+    package="com.almende.toto"
     android:versionCode="20120603"
     android:versionName="Edgar Davids" >
 
@@ -39,7 +39,7 @@
                 </category>
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.sense_os.wk.SYNCHRONIZE" />
+                <action android:name="com.almende.toto.SYNCHRONIZE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

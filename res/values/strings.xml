@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_label">Almende EK</string>
+    <string name="app_label">Almende Pool</string>
     <string name="standings_label">Standings</string>
     <string name="prediction_label">Prediction</string>
     <string name="menu_autosync_off">Disable auto sync</string>

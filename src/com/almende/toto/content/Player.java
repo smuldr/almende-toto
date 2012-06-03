@@ -1,11 +1,12 @@
-package nl.sense_os.wk.content;
+package com.almende.toto.content;
 
 import java.util.ArrayList;
 
-import nl.sense_os.wk.shared.Util;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.almende.toto.shared.Util;
 
 import android.content.Context;
 import android.os.Parcel;

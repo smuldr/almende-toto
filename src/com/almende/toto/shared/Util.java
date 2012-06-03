@@ -1,4 +1,4 @@
-package nl.sense_os.wk.shared;
+package com.almende.toto.shared;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,14 +6,15 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import nl.sense_os.wk.content.Game;
-import nl.sense_os.wk.content.Player;
-import nl.sense_os.wk.content.Poule;
-import nl.sense_os.wk.content.Round;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.almende.toto.content.Game;
+import com.almende.toto.content.Player;
+import com.almende.toto.content.Poule;
+import com.almende.toto.content.Round;
 
 import android.content.Context;
 import android.content.SharedPreferences;

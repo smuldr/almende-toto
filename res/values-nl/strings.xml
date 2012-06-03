@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- DUTCH TRANSLATION -->
 <resources>    
-    <string name="app_label">Almende EK</string>
+    <string name="app_label">Almende Toto</string>
     <string name="standings_label">Stand</string>
     <string name="prediction_label">Voorspelling</string>
     <string name="menu_autosync_off">Auto sync uitzetten</string>
