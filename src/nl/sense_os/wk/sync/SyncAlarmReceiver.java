@@ -11,7 +11,6 @@ import android.preference.PreferenceManager;
 
 public class SyncAlarmReceiver extends BroadcastReceiver {
 
-	private static final String TAG = "WK Sync";
 	private static final String ACTION = "nl.sense_os.wk.SYNCHRONIZE";
 	private static final int REQ_CODE_AWAKE = 241;
 	private static final int REQ_CODE_WAKEUP = 0x0221a2;
