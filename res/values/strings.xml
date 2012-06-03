@@ -9,14 +9,19 @@
     <string name="menu_groups">Groups</string>
     <string name="menu_login">Change user</string>
     <string name="menu_my_prediction">My scores</string>
-    <string name="menu_sync">Sync</string>
+    <string name="menu_refresh">Refresh</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="joker">Joker</string>
     <string name="save">Save</string>
     <string name="edit_prediction">Edit prediction</string>
     <string name="init_progress">Initializing…</string>
-    <string name="login_progress">Logging in…</string>
-    <string name="sync_progress">Synchronizing data…</string>
+    <string name="login_progress">Getting scores…</string>
+    <string name="refresh_progress">Refreshing scores…</string>
     <string name="write_progress">Writing scores…</string>
+    <string name="header_teams">TEAMS</string>
+    <string name="header_prediction">PREDICTION</string>
+    <string name="header_real">RESULT</string>
+    <string name="login_title">Enter login details</string>
+    
 </resources>

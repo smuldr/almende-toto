@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/row"    
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -50,21 +49,10 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/Joker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="joker"
-        android:maxHeight="50dp"
-        android:maxWidth="50dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/joker" />
-
     <RelativeLayout
         android:id="@+id/PredScore"
         android:layout_width="50dp"
-        android:layout_height="fill_parent"
-        android:layout_marginRight="5dp" >
+        android:layout_height="fill_parent" >
         
         <TextView
             android:id="@+id/predDivider"
@@ -93,6 +81,18 @@
             android:text="0"
             android:textSize="16sp" />
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/Joker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:contentDescription="@string/joker"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/joker" />
 
     <RelativeLayout
         android:id="@+id/RealScore"

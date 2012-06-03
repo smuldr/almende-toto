@@ -114,7 +114,7 @@ public class Standings extends FragmentActivity {
 			usernameField.setText(prefs.getString(Keys.PREF_LOGIN_NAME, ""));
 
 			final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-			builder.setTitle("Log in");
+			builder.setTitle(R.string.login_title);
 			builder.setView(view);
 			builder.setPositiveButton(android.R.string.ok, new OnClickListener() {
 
@@ -135,15 +135,7 @@ public class Standings extends FragmentActivity {
 					new LoginTask().execute(name, MD5Pass);
 				}
 			});
-			builder.setNegativeButton(android.R.string.cancel, new OnClickListener() {
-
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					finish();
-				}
-			});
-
-			setCancelable(false);
+			builder.setNegativeButton(android.R.string.cancel, null);
 
 			return builder.create();
 		}
@@ -157,12 +149,34 @@ public class Standings extends FragmentActivity {
 		private String pass;
 		private JSONObject scores;
 
+		private String createLoginUrl(String username, String password) {
+
+			final JSONObject json = new JSONObject();
+			try {
+				json.put("type", "login_request");
+				json.put("player", username);
+				json.put("pass", password);
+			} catch (final JSONException e) {
+				Log.e(TAG, "JSONException in top object");
+				return null;
+			}
+
+			String result = "";
+			try {
+				result = URL + URLEncoder.encode(json.toString(), "UTF-8");
+			} catch (final UnsupportedEncodingException e) {
+				Log.e(TAG, "Error encoding JSON object for HTTP Get", e);
+				return null;
+			}
+			return result;
+		}
+
 		@Override
 		protected Boolean doInBackground(String... params) {
 			this.name = params[0];
 			this.pass = params[1];
 
-			final String changeUrl = jsonLoginUrl(this.name, this.pass);
+			final String changeUrl = createLoginUrl(this.name, this.pass);
 
 			final HttpClient httpClient = new DefaultHttpClient();
 			String response = "";
@@ -186,28 +200,6 @@ public class Standings extends FragmentActivity {
 			} else {
 				return false;
 			}
-		}
-
-		private String jsonLoginUrl(String username, String password) {
-
-			final JSONObject json = new JSONObject();
-			try {
-				json.put("type", "login_request");
-				json.put("player", username);
-				json.put("pass", password);
-			} catch (final JSONException e) {
-				Log.e(TAG, "JSONException in top object");
-				return null;
-			}
-
-			String result = "";
-			try {
-				result = URL + URLEncoder.encode(json.toString(), "UTF-8");
-			} catch (final UnsupportedEncodingException e) {
-				Log.e(TAG, "Error encoding JSON object for HTTP Get", e);
-				return null;
-			}
-			return result;
 		}
 
 		@Override
@@ -432,7 +424,7 @@ public class Standings extends FragmentActivity {
 		case R.id.menu_login:
 			setDialogLogin(true);
 			break;
-		case R.id.menu_sync:
+		case R.id.menu_refresh:
 			final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 			final String name = prefs.getString(Keys.PREF_LOGIN_NAME, "");
 			final String pass = prefs.getString(Keys.PREF_LOGIN_PASS, "");

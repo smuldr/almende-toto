@@ -12,7 +12,9 @@
         android:layout_alignParentTop="true"
         android:ems="10"
         android:hint="@string/username"
-        android:imeOptions="actionNext" >
+        android:imeOptions="actionNext"
+        android:inputType="textNoSuggestions"
+        android:singleLine="true" >
 
         <requestFocus />
     </EditText>
@@ -26,7 +28,8 @@
         android:layout_below="@+id/username"
         android:ems="10"
         android:hint="@string/password"
-        android:imeOptions="actionGo"
-        android:inputType="textPassword" />
+        android:imeOptions="actionDone|actionGo"
+        android:inputType="textPassword"
+        android:singleLine="true" />
 
 </RelativeLayout>

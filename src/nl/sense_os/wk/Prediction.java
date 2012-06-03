@@ -184,19 +184,42 @@ public class Prediction extends FragmentActivity {
 		}
 	}
 
-	private class SyncTask extends AsyncTask<String, Void, Boolean> {
+	private class RefreshTask extends AsyncTask<String, Void, Boolean> {
 		private static final String URL = "http://my.sense-os.nl/ek2012/server.php?q=";
 		private String error;
 		private JSONObject fixtures;
 		private String name;
 		private JSONObject scores;
 
+		private String createLoginUrl(String username, String password) {
+
+			final JSONObject json = new JSONObject();
+			try {
+				json.put("type", "login_request");
+				json.put("player", username);
+				json.put("pass", password);
+			} catch (final JSONException e) {
+				Log.e(TAG, "JSONException in top object");
+				return null;
+			}
+
+			String result = "";
+			try {
+				result = URL + URLEncoder.encode(json.toString(), "UTF-8");
+			} catch (final UnsupportedEncodingException e) {
+				Log.e(TAG, "Error encoding JSON object for HTTP Get", e);
+				return null;
+			}
+
+			return result;
+		}
+
 		@Override
 		protected Boolean doInBackground(String... params) {
-			this.name = params[0];
+			name = params[0];
 			final String pass = params[1];
 
-			final String changeUrl = jsonLoginUrl(this.name, pass);
+			final String changeUrl = createLoginUrl(name, pass);
 
 			final HttpClient httpClient = new DefaultHttpClient();
 			String response = "";
@@ -239,33 +262,10 @@ public class Prediction extends FragmentActivity {
 			}
 		}
 
-		private String jsonLoginUrl(String username, String password) {
-
-			final JSONObject json = new JSONObject();
-			try {
-				json.put("type", "login_request");
-				json.put("player", username);
-				json.put("pass", password);
-			} catch (final JSONException e) {
-				Log.e(TAG, "JSONException in top object");
-				return null;
-			}
-
-			String result = "";
-			try {
-				result = URL + URLEncoder.encode(json.toString(), "UTF-8");
-			} catch (final UnsupportedEncodingException e) {
-				Log.e(TAG, "Error encoding JSON object for HTTP Get", e);
-				return null;
-			}
-
-			return result;
-		}
-
 		@Override
 		protected void onPostExecute(Boolean success) {
 
-			setDialogSynchronize(false);
+			setDialogRefresh(false);
 
 			if (true == success) {
 				prepareResult();
@@ -278,7 +278,7 @@ public class Prediction extends FragmentActivity {
 
 		@Override
 		protected void onPreExecute() {
-			setDialogSynchronize(true);
+			setDialogRefresh(true);
 		}
 
 		private boolean parseJson(String response) {
@@ -596,9 +596,9 @@ public class Prediction extends FragmentActivity {
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		final String name = prefs.getString(Keys.PREF_LOGIN_NAME, "");
 		switch (item.getItemId()) {
-		case R.id.menu_sync:
+		case R.id.menu_refresh:
 			final String pass = prefs.getString(Keys.PREF_LOGIN_PASS, "");
-			new SyncTask().execute(name, pass);
+			new RefreshTask().execute(name, pass);
 			break;
 		case R.id.menu_autosync_off:
 			Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
@@ -647,18 +647,12 @@ public class Prediction extends FragmentActivity {
 	 * linked to specific content.
 	 */
 	private void populateTabs() {
-		// Log.d(TAG,"populateTabs");
 		this.tabs = (TabHost) findViewById(R.id.tabhost);
-		// Log.d(TAG,"Found TabHost: " + (this.tabs != null));
 		this.tabs.setup();
-		// Log.d(TAG,"TabHost setup OK");
 		this.selectedTab = this.tabs.getCurrentTab();
-		// Log.d(TAG,"Selected tab: " + this.selectedTab);
 		this.tabs.setCurrentTab(0);
 		this.tabs.setVisibility(View.GONE);
-		// Log.d(TAG,"setCurrentTab OK");
 		this.tabs.clearAllTabs();
-		// Log.d(TAG,"clearAllTabs OK");
 		final OnItemClickListener listener = new MyListListener();
 
 		if (null == this.player) {
@@ -678,6 +672,10 @@ public class Prediction extends FragmentActivity {
 					linLayout.setOrientation(LinearLayout.VERTICAL);
 
 					final ListView gameList = new ListView(Prediction.this);
+
+					View header = getLayoutInflater().inflate(R.layout.round_header, null, false);
+					gameList.addHeaderView(header);
+
 					final String[] games = new String[round.getGames().size()];
 					for (int i = 0; i < games.length; i++) {
 						final int homeId = round.getGames().get(i).getIdHome();
@@ -713,25 +711,7 @@ public class Prediction extends FragmentActivity {
 		setResult(RESULT_OK, data);
 	}
 
-	private void showFinals() {
-		Prediction.this.isFinals = true;
-		Prediction.this.selectedTab = 0;
-		Prediction.this.tabs.setCurrentTab(0);
-		populateTabs();
-
-		updateActionBar();
-	}
-
-	private void showGroups() {
-		Prediction.this.isFinals = false;
-		Prediction.this.selectedTab = 0;
-		Prediction.this.tabs.setCurrentTab(0);
-		populateTabs();
-
-		updateActionBar();
-	}
-
-	private void setDialogSynchronize(boolean enable) {
+	private void setDialogRefresh(boolean enable) {
 		if (enable) {
 			DialogFragment fragment = new DialogFragment() {
 
@@ -741,7 +721,7 @@ public class Prediction extends FragmentActivity {
 					setCancelable(false);
 
 					ProgressDialog dialog = new ProgressDialog(getActivity());
-					dialog.setMessage(getString(R.string.sync_progress));
+					dialog.setMessage(getString(R.string.refresh_progress));
 
 					return dialog;
 				};
@@ -777,6 +757,24 @@ public class Prediction extends FragmentActivity {
 				((DialogFragment) fragment).dismiss();
 			}
 		}
+	}
+
+	private void showFinals() {
+		Prediction.this.isFinals = true;
+		Prediction.this.selectedTab = 0;
+		Prediction.this.tabs.setCurrentTab(0);
+		populateTabs();
+
+		updateActionBar();
+	}
+
+	private void showGroups() {
+		Prediction.this.isFinals = false;
+		Prediction.this.selectedTab = 0;
+		Prediction.this.tabs.setCurrentTab(0);
+		populateTabs();
+
+		updateActionBar();
 	}
 
 	@TargetApi(11)
