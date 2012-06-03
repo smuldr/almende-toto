@@ -12,6 +12,7 @@ import nl.sense_os.wk.content.Player;
 import nl.sense_os.wk.content.Poule;
 import nl.sense_os.wk.shared.Keys;
 import nl.sense_os.wk.shared.Util;
+import nl.sense_os.wk.sync.SyncAlarmReceiver;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -22,12 +23,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -240,8 +238,8 @@ public class Standings extends FragmentActivity {
 
 				onLogIn();
 			} else {
-				Toast.makeText(Standings.this, "Login failed. Cause: " + this.error, Toast.LENGTH_LONG)
-						.show();
+				Toast.makeText(Standings.this, "Login failed. Cause: " + this.error,
+						Toast.LENGTH_LONG).show();
 
 				setDialogLogin(true);
 			}
@@ -420,11 +418,8 @@ public class Standings extends FragmentActivity {
 			listView.setOnItemClickListener(new StandingsListener());
 
 			// start syncing
-			if (prefs.getBoolean(Keys.PREF_AUTOSYNC, false)) {
-				AlarmManager mgr = (AlarmManager) getSystemService(ALARM_SERVICE);
-				PendingIntent operation = PendingIntent.getBroadcast(this, WkSyncer.REQID_SYNC,
-						new Intent("nl.sense_os.wk.Sync"), 0);
-				mgr.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), operation);
+			if (prefs.getBoolean(Keys.PREF_AUTOSYNC, true)) {
+				SyncAlarmReceiver.startSynchronizing(this);
 			}
 		}
 	}
@@ -450,11 +445,8 @@ public class Standings extends FragmentActivity {
 			editor.putBoolean(Keys.PREF_AUTOSYNC, false);
 			editor.commit();
 
-			// set new alarm
-			AlarmManager mgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-			PendingIntent operation = PendingIntent.getBroadcast(this, WkSyncer.REQID_SYNC,
-					new Intent("nl.sense_os.wk.Sync"), 0);
-			mgr.cancel(operation);
+			SyncAlarmReceiver.stopSynchronizing(this);
+
 			break;
 		case R.id.menu_autosync_on:
 			editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
@@ -462,10 +454,8 @@ public class Standings extends FragmentActivity {
 			editor.commit();
 
 			// set new alarm
-			mgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-			operation = PendingIntent.getBroadcast(this, WkSyncer.REQID_SYNC, new Intent(
-					"nl.sense_os.wk.Sync"), 0);
-			mgr.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), operation);
+			SyncAlarmReceiver.startSynchronizing(this);
+
 			break;
 		case R.id.menu_prediction:
 			String username = PreferenceManager.getDefaultSharedPreferences(this).getString(
@@ -482,7 +472,7 @@ public class Standings extends FragmentActivity {
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		boolean autosync = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-				Keys.PREF_AUTOSYNC, false);
+				Keys.PREF_AUTOSYNC, true);
 		menu.findItem(R.id.menu_autosync_on).setVisible(!autosync);
 		menu.findItem(R.id.menu_autosync_off).setVisible(autosync);
 		return true;

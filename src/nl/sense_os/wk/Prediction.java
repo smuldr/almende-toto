@@ -12,6 +12,7 @@ import nl.sense_os.wk.content.Poule;
 import nl.sense_os.wk.content.Round;
 import nl.sense_os.wk.shared.Keys;
 import nl.sense_os.wk.shared.Util;
+import nl.sense_os.wk.sync.SyncAlarmReceiver;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -23,10 +24,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.annotation.TargetApi;
-import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -617,10 +616,8 @@ public class Prediction extends FragmentActivity {
 			editor.commit();
 
 			// set new alarm
-			AlarmManager mgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-			PendingIntent operation = PendingIntent.getBroadcast(this, WkSyncer.REQID_SYNC,
-					new Intent("nl.sense_os.wk.Sync"), 0);
-			mgr.cancel(operation);
+			SyncAlarmReceiver.stopSynchronizing(this);
+
 			break;
 		case R.id.menu_autosync_on:
 			editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
@@ -628,10 +625,8 @@ public class Prediction extends FragmentActivity {
 			editor.commit();
 
 			// set new alarm
-			mgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-			operation = PendingIntent.getBroadcast(this, WkSyncer.REQID_SYNC, new Intent(
-					"nl.sense_os.wk.Sync"), 0);
-			mgr.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), operation);
+			SyncAlarmReceiver.startSynchronizing(this);
+
 			break;
 		case R.id.menu_groups:
 			showGroups();

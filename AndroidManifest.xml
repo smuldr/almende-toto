@@ -30,12 +30,7 @@
             android:label="@string/prediction_label" >
         </activity>
 
-        <receiver android:name=".WkSyncer" >
-            <intent-filter>
-                <action android:name="nl.sense_os.wk.Sync" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+        <receiver android:name=".sync.SyncAlarmReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" >
                 </action>
@@ -43,7 +38,16 @@
                 <category android:name="android.intent.category.HOME" >
                 </category>
             </intent-filter>
+            <intent-filter>
+                <action android:name="nl.sense_os.wk.SYNCHRONIZE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </receiver>
+
+        <service
+            android:name=".sync.SyncService"
+            android:exported="false" />
     </application>
 
 </manifest>

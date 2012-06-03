@@ -3,12 +3,12 @@
     <string name="app_label">Almende EK</string>
     <string name="standings_label">Standings</string>
     <string name="prediction_label">Prediction</string>
-    <string name="menu_autosync_off">Turn off auto sync</string>
-    <string name="menu_autosync_on">Turn on auto sync</string>
+    <string name="menu_autosync_off">Disable auto sync</string>
+    <string name="menu_autosync_on">Enable auto sync</string>
     <string name="menu_finals">Finals</string>
     <string name="menu_groups">Groups</string>
     <string name="menu_login">Change user</string>
-    <string name="menu_my_prediction">My Scores</string>
+    <string name="menu_my_prediction">My scores</string>
     <string name="menu_sync">Sync</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
