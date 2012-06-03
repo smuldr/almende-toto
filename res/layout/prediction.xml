@@ -1,40 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabHost
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/tabhost" 
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabhost"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" 
-    android:background="#FFFF7F00"
-    >
-    <LinearLayout 
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" 
-        android:orientation="vertical" 
-        >        
-        <TextView
-            android:id="@+id/PredictionName"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:paddingLeft="8dp"
-            android:text=""
-            android:textSize="16sp"
-            android:gravity="center_vertical"
-            />
-        <TabWidget 
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TabWidget
             android:id="@android:id/tabs"
-            android:background="#FFFF7F00"
-            android:layout_width="fill_parent" 
-            android:layout_height="wrap_content" />
-        <FrameLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#FFFF7F00" >
-            <ListView 
+            android:layout_height="fill_parent">
+
+            <ListView
                 android:id="@+id/tab0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </FrameLayout>
     </LinearLayout>
+
 </TabHost>

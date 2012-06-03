@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, Wk!</string>
-    <string name="app_name">EK Almende</string>
+    <string name="app_name">Almende Voetbalpoule</string>
+    <string name="app_label">Almende EK</string>
+    <string name="standings_label">Standings</string>
+    <string name="prediction_label">Prediction</string>
 </resources>
