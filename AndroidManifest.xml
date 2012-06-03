@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.almende.toto"
+    package="com.almende.footballpool"
     android:versionCode="20120603"
     android:versionName="Edgar Davids" >
 
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Prediction"
+            android:name=".Prediction.pool.Prediction"
             android:configChanges="orientation"
             android:label="@string/prediction_label" >
         </activity>
@@ -39,14 +39,14 @@
                 </category>
             </intent-filter>
             <intent-filter>
-                <action android:name="com.almende.toto.SYNCHRONIZE" />
+                <action android:name="com.almende.footballpool.SYNCHRONIZE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <service
-            android:name=".sync.SyncService"
+        <secom.almende.pool.sync.SyncService
+            android:name="com.almende.pool.sync.SyncService"
             android:exported="false" />
     </application>
 

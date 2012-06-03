@@ -1,4 +1,4 @@
-package com.almende.toto.content;
+package com.almende.footballpool.content;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.almende.toto.shared.Util;
+import com.almende.footballpool.shared.Util;
 
 import android.content.Context;
 import android.os.Parcel;

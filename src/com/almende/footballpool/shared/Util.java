@@ -1,4 +1,4 @@
-package com.almende.toto.shared;
+package com.almende.footballpool.shared;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,10 +11,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.almende.toto.content.Game;
-import com.almende.toto.content.Player;
-import com.almende.toto.content.Poule;
-import com.almende.toto.content.Round;
+import com.almende.footballpool.content.Game;
+import com.almende.footballpool.content.Player;
+import com.almende.footballpool.content.Poule;
+import com.almende.footballpool.content.Round;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,4 +1,4 @@
-package com.almende.toto.sync;
+package com.almende.footballpool.sync;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -14,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.almende.toto.shared.Keys;
+import com.almende.footballpool.shared.Keys;
 
 import android.app.IntentService;
 import android.content.Context;

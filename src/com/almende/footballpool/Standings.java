@@ -1,4 +1,4 @@
-package com.almende.toto;
+package com.almende.footballpool;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -43,11 +43,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.almende.toto.content.Player;
-import com.almende.toto.content.Poule;
-import com.almende.toto.shared.Keys;
-import com.almende.toto.shared.Util;
-import com.almende.toto.sync.SyncAlarmReceiver;
+import com.almende.footballpool.content.Player;
+import com.almende.footballpool.content.Poule;
+import com.almende.footballpool.shared.Keys;
+import com.almende.footballpool.shared.Util;
+import com.almende.footballpool.sync.SyncAlarmReceiver;
 
 public class Standings extends FragmentActivity {
 

@@ -1,4 +1,4 @@
-package com.almende.toto.shared;
+package com.almende.footballpool.shared;
 
 public class Keys {
 

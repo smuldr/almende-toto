@@ -1,4 +1,4 @@
-package com.almende.toto.content;
+package com.almende.footballpool.content;
 
 import java.util.ArrayList;
 
