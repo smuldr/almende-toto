@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Prediction.pool.Prediction"
+            android:name=".Prediction"
             android:configChanges="orientation"
             android:label="@string/prediction_label" >
         </activity>
@@ -45,8 +45,8 @@
             </intent-filter>
         </receiver>
 
-        <secom.almende.pool.sync.SyncService
-            android:name="com.almende.pool.sync.SyncService"
+        <service
+            android:name=".sync.SyncService"
             android:exported="false" />
     </application>
 
