@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/menu_groups" android:title="@string/menu_groups" android:showAsAction="ifRoom|withText"></item><item android:id="@+id/menu_finals" android:title="@string/menu_finals" android:showAsAction="ifRoom|withText"></item><item android:id="@+id/menu_sync" android:title="@string/menu_sync" android:showAsAction="ifRoom|withText" />
+    
+    <item
+        android:id="@+id/menu_autosync_on"
+        android:title="@string/menu_autosync_on"/>
+    <item
+        android:id="@+id/menu_autosync_off"
+        android:title="@string/menu_autosync_off"/><item android:id="@+id/menu_login" android:title="@string/menu_login" />
+        
+    
+
+</menu>

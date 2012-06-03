@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Wk!</string>
     <string name="app_name">Almende Voetbalpoule</string>
     <string name="app_label">Almende EK</string>
     <string name="standings_label">Standings</string>
     <string name="prediction_label">Prediction</string>
+    <string name="menu_autosync_off">Turn off autosync</string><string name="menu_autosync_on">Turn on autosync</string><string name="menu_finals">Finals</string><string name="menu_groups">Groups</string><string name="menu_login">Change user</string><string name="menu_my_prediction">My Scores</string>
+    
+    <string name="menu_sync">Sync</string>
+    
+    
+    
+    
 </resources>

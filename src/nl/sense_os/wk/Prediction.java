@@ -31,9 +31,9 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -418,9 +418,6 @@ public class Prediction extends Activity {
 	private static final int DIALOG_INITIALIZING = 1;
 	private static final int DIALOG_SYNC_PROGRESS = 2;
 	private static final int DIALOG_WRITE_PROGRESS = 3;
-	public static final int MENU_AUTOSYNC_OFF = 4;
-	public static final int MENU_AUTOSYNC_ON = 3;
-	private static final int MENU_SYNC = 1;
 	private static final String TAG = "WK Prediction";
 	private boolean isFinals;
 	private Player player;
@@ -635,7 +632,8 @@ public class Prediction extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(Menu.NONE, MENU_SYNC, Menu.NONE, "Sync").setIcon(R.drawable.ic_menu_refresh);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu_prediction, menu);
 		return true;
 	}
 
@@ -645,11 +643,11 @@ public class Prediction extends Activity {
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		final String name = prefs.getString(Wk.PREF_LOGIN_NAME, "");
 		switch (item.getItemId()) {
-		case MENU_SYNC:
+		case R.id.menu_sync:
 			final String pass = prefs.getString(Wk.PREF_LOGIN_PASS, "");
 			new SyncTask().execute(name, pass);
 			break;
-		case MENU_AUTOSYNC_OFF:
+		case R.id.menu_autosync_off:
 			Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
 			editor.putBoolean(Wk.PREF_AUTOSYNC, false);
 			editor.commit();
@@ -660,7 +658,7 @@ public class Prediction extends Activity {
 					new Intent("nl.sense_os.wk.Sync"), 0);
 			mgr.cancel(operation);
 			break;
-		case MENU_AUTOSYNC_ON:
+		case R.id.menu_autosync_on:
 			editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
 			editor.putBoolean(Wk.PREF_AUTOSYNC, true);
 			editor.commit();
@@ -671,6 +669,12 @@ public class Prediction extends Activity {
 					"nl.sense_os.wk.Sync"), 0);
 			mgr.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), operation);
 			break;
+		case R.id.menu_groups:
+			showGroups();
+			break;
+		case R.id.menu_finals:
+			showFinals();
+			break;
 		default:
 			Log.w(TAG, "Unexpected option selected");
 			return false;
@@ -680,16 +684,12 @@ public class Prediction extends Activity {
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		final boolean autosync = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-				Wk.PREF_AUTOSYNC, true);
-		if (autosync) {
-			menu.removeItem(MENU_AUTOSYNC_ON);
-			menu.add(Menu.NONE, MENU_AUTOSYNC_OFF, Menu.NONE, "Turn auto sync OFF");
-		} else {
-			menu.removeItem(MENU_AUTOSYNC_OFF);
-			menu.add(Menu.NONE, MENU_AUTOSYNC_ON, Menu.NONE, "Turn auto sync ON");
-		}
-
+		boolean autosync = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+				Wk.PREF_AUTOSYNC, false);
+		menu.findItem(R.id.menu_autosync_on).setVisible(!autosync);
+		menu.findItem(R.id.menu_autosync_off).setVisible(autosync);
+		menu.findItem(R.id.menu_groups).setVisible(isFinals);
+		menu.findItem(R.id.menu_finals).setVisible(!isFinals);
 		return true;
 	}
 
@@ -752,39 +752,6 @@ public class Prediction extends Activity {
 					gameList.setLayoutParams(new LayoutParams(-1, 0, 1));
 					linLayout.addView(gameList);
 
-					final Button pouleButton = new Button(Prediction.this);
-					pouleButton.setText("Groups");
-					pouleButton.setEnabled(Prediction.this.isFinals);
-					pouleButton.setLayoutParams(new LayoutParams(0, -2, 1));
-					pouleButton.setOnClickListener(new OnClickListener() {
-
-						@Override
-						public void onClick(View v) {
-							Prediction.this.isFinals = false;
-							Prediction.this.selectedTab = 0;
-							Prediction.this.tabs.setCurrentTab(0);
-							populateTabs();
-						}
-					});
-					final Button finalsButton = new Button(Prediction.this);
-					finalsButton.setText("Finals");
-					finalsButton.setEnabled(!Prediction.this.isFinals);
-					finalsButton.setLayoutParams(new LayoutParams(0, -2, 1));
-					finalsButton.setOnClickListener(new OnClickListener() {
-
-						@Override
-						public void onClick(View v) {
-							Prediction.this.isFinals = true;
-							Prediction.this.selectedTab = 0;
-							Prediction.this.tabs.setCurrentTab(0);
-							populateTabs();
-						}
-					});
-					final LinearLayout buttons = new LinearLayout(Prediction.this);
-					buttons.addView(pouleButton);
-					buttons.addView(finalsButton);
-					buttons.setLayoutParams(new LayoutParams(-1, -2, 0));
-					linLayout.addView(buttons);
 					return linLayout;
 				}
 			});
@@ -797,6 +764,24 @@ public class Prediction extends Activity {
 		this.tabs.setCurrentTab(this.selectedTab);
 
 		this.tabs.setVisibility(View.VISIBLE);
+	}
+
+	private void showGroups() {
+		Prediction.this.isFinals = false;
+		Prediction.this.selectedTab = 0;
+		Prediction.this.tabs.setCurrentTab(0);
+		populateTabs();
+
+		invalidateOptionsMenu();
+	}
+
+	private void showFinals() {
+		Prediction.this.isFinals = true;
+		Prediction.this.selectedTab = 0;
+		Prediction.this.tabs.setCurrentTab(0);
+		populateTabs();
+
+		invalidateOptionsMenu();
 	}
 
 	private void prepareResult() {

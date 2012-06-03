@@ -52,8 +52,7 @@ public class WkSyncer extends BroadcastReceiver {
 
 				Log.d(TAG,
 						"HTTP execute: "
-								+ URLDecoder.decode(request.getRequestLine()
-										.toString()));
+								+ URLDecoder.decode(request.getRequestLine().toString(), "UTF-8"));
 				ResponseHandler<String> responseHandler = new BasicResponseHandler();
 				response = httpClient.execute(request, responseHandler);
 
@@ -99,8 +98,8 @@ public class WkSyncer extends BroadcastReceiver {
 
 			if (true == success) {
 				// save scores and fixtures in preferences
-				Editor editor = PreferenceManager.getDefaultSharedPreferences(
-						WkSyncer.this.context).edit();
+				Editor editor = PreferenceManager
+						.getDefaultSharedPreferences(WkSyncer.this.context).edit();
 				editor.putString(Wk.PREF_SCORES, scores.toString());
 				editor.putString(Wk.PREF_FIXTURES, fixtures.toString());
 				editor.commit();
@@ -188,17 +187,14 @@ public class WkSyncer extends BroadcastReceiver {
 		Log.d(TAG, "onReceive");
 		this.context = context;
 
-		SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		boolean autosync = prefs.getBoolean(Wk.PREF_AUTOSYNC, false);
 
 		// set new alarm
-		AlarmManager mgr = (AlarmManager) context
-				.getSystemService(Context.ALARM_SERVICE);
-		PendingIntent operation = PendingIntent.getBroadcast(context,
-				REQID_SYNC, new Intent("nl.sense_os.wk.Sync"), 0);
-		mgr.set(AlarmManager.RTC_WAKEUP,
-				System.currentTimeMillis() + 3 * 60 * 1000, operation);
+		AlarmManager mgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+		PendingIntent operation = PendingIntent.getBroadcast(context, REQID_SYNC, new Intent(
+				"nl.sense_os.wk.Sync"), 0);
+		mgr.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 3 * 60 * 1000, operation);
 
 		if (autosync) {
 			ConnectivityManager conn = (ConnectivityManager) context
@@ -225,8 +221,7 @@ public class WkSyncer extends BroadcastReceiver {
 
 			Log.d(TAG,
 					"HTTP execute: "
-							+ URLDecoder.decode(request.getRequestLine()
-									.toString()));
+							+ URLDecoder.decode(request.getRequestLine().toString(), "UTF-8"));
 			ResponseHandler<String> responseHandler = new BasicResponseHandler();
 			response = httpClient.execute(request, responseHandler);
 
@@ -273,8 +268,7 @@ public class WkSyncer extends BroadcastReceiver {
 
 		if (true == success) {
 			// save scores and fixtures in preferences
-			Editor editor = PreferenceManager.getDefaultSharedPreferences(
-					this.context).edit();
+			Editor editor = PreferenceManager.getDefaultSharedPreferences(this.context).edit();
 			editor.putString(Wk.PREF_SCORES, scores.toString());
 			editor.putString(Wk.PREF_FIXTURES, fixtures.toString());
 			editor.commit();

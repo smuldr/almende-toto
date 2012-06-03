@@ -36,6 +36,7 @@ import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -99,7 +100,7 @@ public class Wk extends Activity {
 			try {
 				final HttpGet request = new HttpGet(changeUrl);
 
-				Log.d(TAG, URLDecoder.decode(request.getRequestLine().toString()));
+				Log.d(TAG, URLDecoder.decode(request.getRequestLine().toString(), "UTF-8"));
 				final ResponseHandler<String> responseHandler = new BasicResponseHandler();
 				response = httpClient.execute(request, responseHandler);
 
@@ -268,10 +269,7 @@ public class Wk extends Activity {
 			}
 
 			// start predictions activity
-			final Intent prediction = new Intent(Wk.this, Prediction.class);
-			prediction.putExtra(KEY_PLAYER, username);
-			prediction.putExtra(KEY_POULE, Wk.this.poule);
-			startActivityForResult(prediction, REQID_PREDICTION);
+			showPrediction(username);
 		}
 	}
 
@@ -280,10 +278,6 @@ public class Wk extends Activity {
 	private static final int DIALOG_PROGRESS = 3;
 	public static final String KEY_POULE = "nl.sense_os.wk.Poule";
 	public static final String KEY_PLAYER = "nl.sense_os.wk.PlayerName";
-	public static final int MENU_AUTOSYNC_OFF = 4;
-	public static final int MENU_AUTOSYNC_ON = 3;
-	public static final int MENU_LOGIN = 1;
-	public static final int MENU_SYNC = 2;
 	public static final String PREF_AUTOSYNC = "autosync";
 	public static final String PREF_FIXTURES = "fixtures";
 	public static final String PREF_LOGIN_NAME = "login_name";
@@ -408,28 +402,18 @@ public class Wk extends Activity {
 		}
 	}
 
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.Prediction:
-			String name = PreferenceManager.getDefaultSharedPreferences(this).getString(
-					PREF_LOGIN_NAME, "");
-			final Intent prediction = new Intent(this, Prediction.class);
-			prediction.putExtra(KEY_PLAYER, name);
-			prediction.putExtra(KEY_POULE, this.poule);
-			startActivityForResult(prediction, REQID_PREDICTION);
-			break;
-		case R.id.Standings:
-			Toast.makeText(this, "Standings are coming soon...", Toast.LENGTH_LONG).show();
-			// startActivity(new Intent("nl.sense_os.wk.Standings"));
-			break;
-		}
+	private void showPrediction(String username) {
+		final Intent prediction = new Intent(this, Prediction.class);
+		prediction.putExtra(KEY_PLAYER, username);
+		prediction.putExtra(KEY_POULE, this.poule);
+		startActivityForResult(prediction, REQID_PREDICTION);
 	}
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.standings);
 
 		final Object data = getLastNonConfigurationInstance();
 		if (null != data) {
@@ -459,15 +443,12 @@ public class Wk extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(Menu.NONE, MENU_LOGIN, Menu.NONE, "Change login").setIcon(
-				android.R.drawable.ic_menu_info_details);
-		menu.add(Menu.NONE, MENU_SYNC, Menu.NONE, "Sync").setIcon(R.drawable.ic_menu_refresh);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu_standings, menu);
 		return true;
 	}
 
 	private void onLogIn() {
-		findViewById(R.id.Prediction).setEnabled(true);
-		findViewById(R.id.Standings).setEnabled(true);
 
 		// get current player
 		if (null == poule) {
@@ -476,8 +457,7 @@ public class Wk extends Activity {
 			}
 		} else {
 			// get my username
-			final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Wk.this);
-			final String username = prefs.getString(PREF_LOGIN_NAME, "");
+			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
 			// show standings
 			listView = (ListView) findViewById(R.id.StandingsList);
@@ -516,23 +496,22 @@ public class Wk extends Activity {
 	}
 
 	private void onLogOut() {
-		findViewById(R.id.Prediction).setEnabled(false);
-		findViewById(R.id.Standings).setEnabled(false);
+		// nothing to do
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case MENU_LOGIN:
+		case R.id.menu_login:
 			showDialog(DIALOG_LOGIN);
 			break;
-		case MENU_SYNC:
+		case R.id.menu_sync:
 			final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 			final String name = prefs.getString(PREF_LOGIN_NAME, "");
 			final String pass = prefs.getString(PREF_LOGIN_PASS, "");
 			new LoginTask().execute(name, pass);
 			break;
-		case MENU_AUTOSYNC_OFF:
+		case R.id.menu_autosync_off:
 			Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
 			editor.putBoolean(PREF_AUTOSYNC, false);
 			editor.commit();
@@ -543,7 +522,7 @@ public class Wk extends Activity {
 					new Intent("nl.sense_os.wk.Sync"), 0);
 			mgr.cancel(operation);
 			break;
-		case MENU_AUTOSYNC_ON:
+		case R.id.menu_autosync_on:
 			editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
 			editor.putBoolean(PREF_AUTOSYNC, true);
 			editor.commit();
@@ -554,6 +533,11 @@ public class Wk extends Activity {
 					"nl.sense_os.wk.Sync"), 0);
 			mgr.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), operation);
 			break;
+		case R.id.menu_prediction:
+			String username = PreferenceManager.getDefaultSharedPreferences(this).getString(
+					PREF_LOGIN_NAME, "");
+			showPrediction(username);
+			break;
 		default:
 			Log.w(TAG, "Unexpected option selected");
 			return false;
@@ -563,16 +547,10 @@ public class Wk extends Activity {
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		final boolean autosync = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+		boolean autosync = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
 				PREF_AUTOSYNC, false);
-		if (autosync) {
-			menu.removeItem(MENU_AUTOSYNC_ON);
-			menu.add(Menu.NONE, MENU_AUTOSYNC_OFF, Menu.NONE, "Turn auto sync OFF");
-		} else {
-			menu.removeItem(MENU_AUTOSYNC_OFF);
-			menu.add(Menu.NONE, MENU_AUTOSYNC_ON, Menu.NONE, "Turn auto sync ON");
-		}
-
+		menu.findItem(R.id.menu_autosync_on).setVisible(!autosync);
+		menu.findItem(R.id.menu_autosync_off).setVisible(autosync);
 		return true;
 	}
 

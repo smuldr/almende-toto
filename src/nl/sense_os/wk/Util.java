@@ -20,8 +20,6 @@ public class Util {
 
 	public static ArrayList<Game> csvToGames(String csvPred, String csvReal) {
 
-		Log.d(TAG, "CVS to games: '" + csvPred + "' / '" + csvReal + "'");
-
 		if (csvPred.length() == 0) {
 			Log.w(TAG, "Prediction is empty!");
 			csvPred = csvReal;
@@ -60,13 +58,11 @@ public class Util {
 				// find penalty winner prediction
 				if (homeToken.contains(":w")) {
 					game.predPenaltyWinner = 1;
-					game.predHome = homeToken.substring(0,
-							homeToken.indexOf(":")).trim();
+					game.predHome = homeToken.substring(0, homeToken.indexOf(":")).trim();
 					game.predAway = awayToken.trim();
 				} else if (awayToken.contains(":w")) {
 					game.predPenaltyWinner = 2;
-					game.predAway = awayToken.substring(0,
-							awayToken.indexOf(":")).trim();
+					game.predAway = awayToken.substring(0, awayToken.indexOf(":")).trim();
 					game.predHome = homeToken.trim();
 				} else {
 					game.predHome = homeToken.trim();
@@ -116,13 +112,11 @@ public class Util {
 				// find penalty winner result
 				if (homeToken.contains(":w")) {
 					game.realPenaltyWinner = 1;
-					game.realHome = homeToken.substring(0,
-							homeToken.indexOf(":")).trim();
+					game.realHome = homeToken.substring(0, homeToken.indexOf(":")).trim();
 					game.realAway = awayToken.trim();
 				} else if (awayToken.contains(":w")) {
 					game.realPenaltyWinner = 2;
-					game.realAway = awayToken.substring(0,
-							awayToken.indexOf(":")).trim();
+					game.realAway = awayToken.substring(0, awayToken.indexOf(":")).trim();
 					game.realHome = homeToken.trim();
 				} else {
 					game.realHome = homeToken.trim();
@@ -143,12 +137,9 @@ public class Util {
 		String csv = "";
 
 		for (Game game : games) {
-			String homeToken = game.predHome
-					+ (game.predPenaltyWinner == 1 ? ":w" : "");
-			String awayToken = game.predAway
-					+ (game.predPenaltyWinner == 2 ? ":w" : "");
-			csv += homeToken + "," + awayToken + "," + (game.joker ? "j" : "")
-					+ ",";
+			String homeToken = game.predHome + (game.predPenaltyWinner == 1 ? ":w" : "");
+			String awayToken = game.predAway + (game.predPenaltyWinner == 2 ? ":w" : "");
+			csv += homeToken + "," + awayToken + "," + (game.joker ? "j" : "") + ",";
 		}
 
 		return csv;
@@ -158,8 +149,7 @@ public class Util {
 		Log.d(TAG, "Get jokers for " + username);
 
 		// get important data from preferences
-		SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		String scoreString = prefs.getString(Wk.PREF_SCORES, "");
 
 		int availableJokers = -1;
@@ -191,8 +181,7 @@ public class Util {
 
 		// put scores in the games
 		Log.d(TAG, "Parse group stage jokers");
-		final ArrayList<Game> groupStage = Util.csvToGames(poulesPred,
-				poulesReal);
+		final ArrayList<Game> groupStage = Util.csvToGames(poulesPred, poulesReal);
 		for (Game game : groupStage) {
 			if (game.joker) {
 				availableJokers--;
@@ -200,8 +189,7 @@ public class Util {
 		}
 
 		Log.d(TAG, "Parse quarter finals jokers");
-		final ArrayList<Game> finals4 = Util.csvToGames(finals4Pred,
-				finals4Real);
+		final ArrayList<Game> finals4 = Util.csvToGames(finals4Pred, finals4Real);
 		for (Game game : finals4) {
 			if (game.joker) {
 				availableJokers--;
@@ -209,8 +197,7 @@ public class Util {
 		}
 
 		Log.d(TAG, "Parse semi finals jokers");
-		final ArrayList<Game> finals2 = Util.csvToGames(finals2Pred,
-				finals2Real);
+		final ArrayList<Game> finals2 = Util.csvToGames(finals2Pred, finals2Real);
 		for (Game game : finals2) {
 			if (game.joker) {
 				availableJokers--;
@@ -218,8 +205,7 @@ public class Util {
 		}
 
 		Log.d(TAG, "Parse final jokers");
-		final ArrayList<Game> finals1 = Util.csvToGames(finals1Pred,
-				finals1Real);
+		final ArrayList<Game> finals1 = Util.csvToGames(finals1Pred, finals1Real);
 		for (Game game : finals1) {
 			if (game.joker) {
 				availableJokers--;
@@ -229,13 +215,11 @@ public class Util {
 		return availableJokers;
 	}
 
-	public static ArrayList<Round> getGroupStage(Context context,
-			String username) {
+	public static ArrayList<Round> getGroupStage(Context context, String username) {
 		Log.d(TAG, "Get group stage for " + username);
 
 		// get important data from preferences
-		SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		String jsonScores = prefs.getString(Wk.PREF_SCORES, "");
 		String jsonFixtures = prefs.getString(Wk.PREF_FIXTURES, "");
 
@@ -272,8 +256,7 @@ public class Util {
 		}
 
 		// put scores in the games
-		final ArrayList<Game> groupStageGames = Util.csvToGames(poulesPred,
-				poulesReal);
+		final ArrayList<Game> groupStageGames = Util.csvToGames(poulesPred, poulesReal);
 		int roundIndex = 0;
 		int gameIndex = 0;
 		for (Game game : groupStageGames) {
@@ -308,8 +291,7 @@ public class Util {
 		Log.d(TAG, "Get finals for " + username);
 
 		// get important data from preferences
-		SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		String jsonScores = prefs.getString(Wk.PREF_SCORES, "");
 		String jsonFixtures = prefs.getString(Wk.PREF_FIXTURES, "");
 
@@ -351,8 +333,7 @@ public class Util {
 
 		// put scores in the games
 
-		final ArrayList<Game> finals4Games = Util.csvToGames(finals4Pred,
-				finals4Real);
+		final ArrayList<Game> finals4Games = Util.csvToGames(finals4Pred, finals4Real);
 		final Round finals4NoScores = finals.get(0);
 		for (int i = 0; i < finals4NoScores.games.size(); i++) {
 			Game noTeams = finals4Games.get(i);
@@ -367,8 +348,7 @@ public class Util {
 		}
 		finals.set(0, finals4NoScores);
 
-		final ArrayList<Game> finals2Games = Util.csvToGames(finals2Pred,
-				finals2Real);
+		final ArrayList<Game> finals2Games = Util.csvToGames(finals2Pred, finals2Real);
 		final Round finals2NoScores = finals.get(1);
 		for (int i = 0; i < finals2NoScores.games.size(); i++) {
 			Game noTeams = finals2Games.get(i);
@@ -383,8 +363,7 @@ public class Util {
 		}
 		finals.set(1, finals2NoScores);
 
-		final ArrayList<Game> finals1Games = Util.csvToGames(finals1Pred,
-				finals1Real);
+		final ArrayList<Game> finals1Games = Util.csvToGames(finals1Pred, finals1Real);
 		final Round finals1NoScores = finals.get(2);
 		for (int i = 0; i < finals1NoScores.games.size(); i++) {
 			Game noTeams = finals1Games.get(i);
@@ -407,8 +386,7 @@ public class Util {
 		Log.d(TAG, "getPoule");
 
 		// get important data from preferences
-		SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(context);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		String jsonScores = prefs.getString(Wk.PREF_SCORES, "");
 
 		Poule poule = new Poule();
@@ -420,8 +398,7 @@ public class Util {
 			Iterator<String> names = list.keys();
 			while (names.hasNext()) {
 				String name = names.next();
-				Player player = Player.parsePlayer(context,
-						list.getJSONObject(name));
+				Player player = Player.parsePlayer(context, list.getJSONObject(name));
 				poule.players.put(player.username, player);
 			}
 		} catch (JSONException e) {
@@ -431,9 +408,7 @@ public class Util {
 		return poule;
 	}
 
-	public static int getTotalScore(ArrayList<Round> groupStage,
-			ArrayList<Round> finals) {
-		Log.d(TAG, "getTotalScore");
+	public static int getTotalScore(ArrayList<Round> groupStage, ArrayList<Round> finals) {
 
 		int score = 0;
 
@@ -455,10 +430,8 @@ public class Util {
 	}
 
 	public static ArrayList<Player> getStandings(Poule poule) {
-		Log.d(TAG, "getStandings");
 
-		ArrayList<Player> standings = new ArrayList<Player>(
-				poule.players.size());
+		ArrayList<Player> standings = new ArrayList<Player>(poule.players.size());
 		for (Entry<String, Player> entry : poule.players.entrySet()) {
 			standings.add(entry.getValue());
 		}
@@ -467,10 +440,8 @@ public class Util {
 		Collections.sort(standings, new Comparator<Player>() {
 
 			public int compare(Player object1, Player object2) {
-				int score1 = Util.getTotalScore(object1.groupStage,
-						object1.finals);
-				int score2 = Util.getTotalScore(object2.groupStage,
-						object2.finals);
+				int score1 = Util.getTotalScore(object1.groupStage, object1.finals);
+				int score2 = Util.getTotalScore(object2.groupStage, object2.finals);
 
 				return score2 - score1;
 			}
