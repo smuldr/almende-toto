@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 public class SyncAlarmReceiver extends BroadcastReceiver {
 
@@ -21,7 +20,6 @@ public class SyncAlarmReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		Log.d(TAG, "onReceive");
 
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		if (prefs.getBoolean(Keys.PREF_AUTOSYNC, true)) {
@@ -36,7 +34,6 @@ public class SyncAlarmReceiver extends BroadcastReceiver {
 	}
 
 	public static void startSynchronizing(Context context) {
-		Log.d(TAG, "start synchronizing");
 
 		AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 		Intent intent = new Intent(ACTION);
@@ -53,7 +50,6 @@ public class SyncAlarmReceiver extends BroadcastReceiver {
 	}
 
 	public static void stopSynchronizing(Context context) {
-		Log.d(TAG, "stop synchronizing");
 
 		AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 		Intent intent = new Intent(ACTION);

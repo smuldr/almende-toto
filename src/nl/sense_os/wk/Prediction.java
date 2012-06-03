@@ -2,7 +2,6 @@ package nl.sense_os.wk;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
@@ -157,7 +156,6 @@ public class Prediction extends FragmentActivity {
 				}
 			} else {
 				Log.w(TAG, "Cannot find prediction score cell view!");
-				Log.d(TAG, "Troublesome game: " + game.getTeamHome() + " - " + game.getTeamAway());
 			}
 
 			return rowView;
@@ -204,10 +202,6 @@ public class Prediction extends FragmentActivity {
 			String response = "";
 			try {
 				final HttpGet request = new HttpGet(changeUrl);
-
-				Log.d(TAG,
-						"HTTP execute: "
-								+ URLDecoder.decode(request.getRequestLine().toString(), "UTF-8"));
 				final ResponseHandler<String> responseHandler = new BasicResponseHandler();
 				response = httpClient.execute(request, responseHandler);
 
@@ -368,10 +362,6 @@ public class Prediction extends FragmentActivity {
 			String response = "";
 			try {
 				final HttpGet request = new HttpGet(jsonUrl);
-
-				Log.d(TAG,
-						"HTTP execute: "
-								+ URLDecoder.decode(request.getRequestLine().toString(), "UTF-8"));
 				final ResponseHandler<String> responseHandler = new BasicResponseHandler();
 				response = httpClient.execute(request, responseHandler);
 

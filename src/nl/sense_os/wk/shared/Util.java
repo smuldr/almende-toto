@@ -21,7 +21,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class Util {
-	private static final String TAG = "WK Util";
+	private static final String TAG = "EK Util";
 
 	public static ArrayList<Game> csvToGames(String csvPred, String csvReal) {
 
@@ -151,7 +151,6 @@ public class Util {
 	}
 
 	public static int getJokers(Context context, String username) {
-		Log.d(TAG, "Get jokers for " + username);
 
 		// get important data from preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -221,7 +220,6 @@ public class Util {
 	}
 
 	public static ArrayList<Round> getGroupStage(Context context, String username) {
-		Log.d(TAG, "Get group stage for " + username);
 
 		// get important data from preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -293,7 +291,6 @@ public class Util {
 	}
 
 	public static ArrayList<Round> getFinals(Context context, String username) {
-		Log.d(TAG, "Get finals for " + username);
 
 		// get important data from preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -386,9 +383,7 @@ public class Util {
 		return finals;
 	}
 
-	@SuppressWarnings("unchecked")
 	public static Poule getPoule(Context context) {
-		Log.d(TAG, "getPoule");
 
 		// get important data from preferences
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -400,6 +395,7 @@ public class Util {
 			JSONObject scores = new JSONObject(jsonScores);
 			JSONObject list = scores.getJSONObject("list");
 
+			@SuppressWarnings("unchecked")
 			Iterator<String> names = list.keys();
 			while (names.hasNext()) {
 				String name = names.next();

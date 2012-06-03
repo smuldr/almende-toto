@@ -2,7 +2,6 @@ package nl.sense_os.wk.sync;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 import nl.sense_os.wk.shared.Keys;
@@ -76,7 +75,7 @@ public class SyncService extends IntentService {
 				Log.w(TAG, "Synchronization failed: " + error);
 			}
 		} else {
-			Log.d(TAG, "Not syncing... NetworkInfo=" + (info == null));
+			// no network
 		}
 	}
 
@@ -161,10 +160,6 @@ public class SyncService extends IntentService {
 		String response = "";
 		try {
 			HttpGet request = new HttpGet(changeUrl);
-
-			Log.d(TAG,
-					"HTTP execute: "
-							+ URLDecoder.decode(request.getRequestLine().toString(), "UTF-8"));
 			ResponseHandler<String> responseHandler = new BasicResponseHandler();
 			response = httpClient.execute(request, responseHandler);
 

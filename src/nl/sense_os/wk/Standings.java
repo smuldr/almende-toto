@@ -2,7 +2,6 @@ package nl.sense_os.wk;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -169,8 +168,6 @@ public class Standings extends FragmentActivity {
 			String response = "";
 			try {
 				final HttpGet request = new HttpGet(changeUrl);
-
-				Log.d(TAG, URLDecoder.decode(request.getRequestLine().toString(), "UTF-8"));
 				final ResponseHandler<String> responseHandler = new BasicResponseHandler();
 				response = httpClient.execute(request, responseHandler);
 
