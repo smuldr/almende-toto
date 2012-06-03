@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.sense_os.wk"
-    android:versionCode="20120601"
+    android:versionCode="20120603"
     android:versionName="Edgar Davids" >
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,7 @@
         <activity
             android:name=".Standings"
             android:configChanges="orientation"
-            android:label="@string/standings_label" >
+            android:label="@string/app_label" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

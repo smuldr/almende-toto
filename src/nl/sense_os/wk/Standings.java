@@ -370,6 +370,7 @@ public class Standings extends FragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setTitle(R.string.standings_label);
 		setContentView(R.layout.standings);
 	}
 
